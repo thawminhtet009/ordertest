@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Studio Lumen — Course Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --bg-primary: #141414;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1f1f1f;
+            --bg-card-hover: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #808080;
+            --red: #e50914;
+            --red-hover: #f40612;
+            --gold: #ffd700;
+            --gold-soft: rgba(255, 215, 0, 0.15);
+            --green: #46d369;
+            --border: rgba(255, 255, 255, 0.08);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+            --radius: 8px;
+            --manga-color: #e50914;
+            --manhwa-color: #f7971e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 80% 40% at 50% 0%, rgba(229, 9, 20, 0.08) 0%, transparent 70%),
+                linear-gradient(180deg, #0a0a0a 0%, var(--bg-primary) 40%);
+        }
+
+        .serif {
+            font-family: 'Fraunces', serif;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--red);
+            border-radius: 3px;
+        }
+
+        /* NAV */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 900;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 80%, transparent 100%);
+            padding: 14px 18px;
+            transition: background 0.3s ease;
+        }
+
+        .topbar.scrolled {
+            background: rgba(20, 20, 20, 0.98);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .topbar-inner {
+            max-width: 560px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            position: relative;
+        }
+
+        .brand {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 0.01em;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .brand .dot {
+            color: var(--red);
+            -webkit-text-fill-color: var(--red);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .status-on {
+            background: rgba(70, 211, 105, 0.15);
+            color: var(--green);
+            border-color: rgba(70, 211, 105, 0.3);
+        }
+
+        .status-off {
+            background: rgba(229, 9, 20, 0.15);
+            color: var(--red);
+            border-color: rgba(229, 9, 20, 0.3);
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            z-index: 1;
+            padding: 100px 22px 30px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--red);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 9vw, 3.2rem);
+            line-height: 1.1;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #ffffff 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 400;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 0 16px 24px;
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .num {
+            font-size: 10px;
+            color: #fff;
+            background: var(--red);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Inter';
+        }
+
+        /* VIP FEATURES */
+        .vip-story-carousel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .vip-story-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/5;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 12px 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: var(--bg-card);
+        }
+
+        .vip-story-item .vip-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .vip-story-item:hover .vip-image {
+            transform: scale(1.05);
+        }
+
+        .vip-story-item .vip-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .vip-story-item .vip-ring {
+            position: absolute;
+            inset: -2px;
+            border-radius: var(--radius);
+            border: 2px solid transparent;
+            z-index: 3;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .vip-story-item .vip-ring.gold {
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .vip-story-item .vip-ring.pulse {
+            animation: pulse-ring 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+
+        .vip-story-item .vip-emoji {
+            position: relative;
+            z-index: 2;
+            font-size: 28px;
+            margin-bottom: 2px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .vip-story-item .vip-label {
+            position: relative;
+            z-index: 2;
+            font-size: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+        }
+
+        .vip-story-item .vip-value {
+            position: relative;
+            z-index: 2;
+            font-size: 9px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .vip-story-item .vip-badge-top {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            z-index: 3;
+            background: rgba(255, 215, 0, 0.9);
+            color: #000;
+            font-size: 6px;
+            font-weight: 900;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .vip-story-item .vip-play-icon {
+            position: absolute;
+            z-index: 2;
+            font-size: 32px;
+            color: rgba(255,255,255,0.6);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .vip-story-item:hover .vip-play-icon {
+            opacity: 1;
+        }
+
+        .vip-story-item .vip-gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, transparent 60%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .vip-story-item:hover .vip-gradient-overlay {
+            opacity: 1;
+        }
+
+        .vip-story-item:nth-child(1) { border-color: rgba(255, 215, 0, 0.3); }
+        .vip-story-item:nth-child(2) { border-color: rgba(70, 211, 105, 0.3); }
+        .vip-story-item:nth-child(3) { border-color: rgba(36, 161, 222, 0.3); }
+        .vip-story-item:nth-child(4) { border-color: rgba(255, 215, 0, 0.3); }
+
+        /* STAT GRID */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .stat-card .stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .stat-card .stat-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stat-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .stat-icon.gold {
+            background: var(--gold-soft);
+            color: var(--gold);
+        }
+
+        .stat-icon.green {
+            background: rgba(70, 211, 105, 0.12);
+            color: var(--green);
+        }
+
+        .stat-icon.red {
+            background: rgba(229, 9, 20, 0.12);
+            color: var(--red);
+        }
+
+        .stat-icon.slate {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        /* ORDER TYPE SELECTOR BUTTONS */
+        .order-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .order-type-btn {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .order-type-btn:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            background: var(--bg-card-hover);
+        }
+
+        .order-type-btn.active-manga {
+            border-color: var(--manga-color);
+            background: rgba(229, 9, 20, 0.12);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.1);
+        }
+
+        .order-type-btn.active-manhwa {
+            border-color: var(--manhwa-color);
+            background: rgba(247, 151, 30, 0.12);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(247, 151, 30, 0.1);
+        }
+
+        .order-type-btn i {
+            font-size: 16px;
+        }
+
+        .order-type-btn .badge-type {
+            font-size: 8px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* TICKET CARDS */
+        .ticket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .ticket-grid .ticket {
+            position: relative;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            overflow: hidden;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ticket-grid .ticket::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ticket-grid .ticket:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .ticket-grid .ticket:hover::before {
+            opacity: 1;
+        }
+
+        .ticket-grid .ticket.selected {
+            border-color: var(--red);
+            background: var(--bg-card-hover);
+            box-shadow: 0 0 25px rgba(229, 9, 20, 0.12);
+        }
+
+        .ticket-grid .ticket.selected::before {
+            opacity: 1;
+        }
+
+        .ticket-grid .ticket .ticket-stub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(229, 9, 20, 0.08);
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticket-grid .ticket .ticket-stub i {
+            color: var(--red);
+            font-size: 20px;
+        }
+
+        .ticket-grid .ticket .ticket-stub i.crown {
+            color: var(--gold);
+        }
+
+        .ticket-grid .ticket .ticket-label {
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticket-grid .ticket .ticket-amount {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticket-grid .ticket .ticket-amount span {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-family: 'Inter';
+            margin-left: 2px;
+        }
+
+        .ticket-grid .ticket .ticket-meta {
+            font-size: 9px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ticket-grid .ticket .ticket-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--red);
+            color: #fff;
+            font-size: 7px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .ticket-grid .ticket .ticket-badge.green {
+            background: var(--green);
+            color: #000;
+        }
+
+        .ticket-grid .ticket .ticket-badge.gold {
+            background: var(--gold);
+            color: #000;
+        }
+
+        .ticket-grid .ticket .ticket-check {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+            background: var(--bg-card);
+        }
+
+        .ticket-grid .ticket.selected .ticket-check {
+            background: var(--red);
+            border-color: var(--red);
+        }
+
+        .ticket-grid .ticket.selected .ticket-check i {
+            color: #fff;
+            font-size: 10px;
+        }
+
+        .ticket-grid .ticket .ticket-check i {
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .ticket-grid .ticket.selected .ticket-check i {
+            opacity: 1;
+        }
+
+        /* FORM */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .card.glow {
+            border-color: var(--red);
+            box-shadow: 0 0 30px rgba(229, 9, 20, 0.08);
+        }
+
+        .field {
+            margin-bottom: 14px;
+        }
+
+        .field label {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .field .field-hint {
+            font-size: 9px;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 2px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-primary);
+            padding: 0 14px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        input::placeholder {
+            color: var(--text-muted);
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.15);
+        }
+
+        .pass-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-pass {
+            position: absolute;
+            right: 14px;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        .coupon-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .coupon-note {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            min-height: 14px;
+        }
+
+        .coupon-note.ok {
+            color: var(--green);
+        }
+
+        .coupon-note.bad {
+            color: var(--red);
+        }
+
+        .btn-apply {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 0 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .btn-apply:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .price-total {
+            text-align: right;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .price-total .strike {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 11px;
+            margin-right: 6px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 6px;
+            background: var(--red);
+            color: #fff;
+            font-weight: 800;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: all 0.2s ease;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: var(--red-hover);
+            transform: scale(1.01);
+        }
+
+        .btn-submit:disabled {
+            background: #333;
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        /* LOGIN BUTTON STYLES (Quick Links) */
+        .btn-login {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 52px;
+            flex: 1;
+            text-decoration: none;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .btn-login.manga-login {
+            background: linear-gradient(135deg, #e50914, #ff6b6b);
+            color: #fff;
+        }
+
+        .btn-login.manhwa-login {
+            background: linear-gradient(135deg, #f7971e, #ffd700);
+            color: #000;
+        }
+
+        .btn-login i {
+            font-size: 16px;
+        }
+
+        /* PAYMENT */
+        .pay-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--red);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .pay-detail {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-top: 14px;
+        }
+
+        .pay-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 26px;
+            padding: 0 14px;
+            border-radius: 999px;
+            background: rgba(229, 9, 20, 0.12);
+            color: var(--red);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .pay-qr-wrap {
+            display: flex;
+            justify-content: center;
+            margin: 14px 0 8px;
+        }
+
+        .pay-detail.no-qr .pay-qr-wrap {
+            display: none;
+        }
+
+        .pay-qr {
+            width: min(180px, 100%);
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: #fff;
+            border-radius: 8px;
+            padding: 8px;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .pay-num {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            display: block;
+            color: var(--text-primary);
+        }
+
+        .pay-name {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .pay-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 800;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: all 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 8px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .faq-q {
+            padding: 14px 16px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .faq-q i {
+            color: var(--text-muted);
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-q i {
+            transform: rotate(180deg);
+        }
+
+        .faq-a {
+            padding: 0 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-a {
+            padding-bottom: 14px;
+            max-height: 220px;
+        }
+
+        /* PROFILE */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .profile-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(229, 9, 20, 0.12);
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            border: 2px solid var(--border);
+        }
+
+        .profile-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+        }
+
+        .profile-header p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        /* MEMBERSHIP CARD */
+        .membership-card {
+            position: relative;
+            border-radius: var(--radius);
+            padding: 18px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .membership-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .membership-card.is-active {
+            border-color: rgba(70, 211, 105, 0.3);
+        }
+
+        .membership-card.is-pending {
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .membership-card.is-rejected {
+            border-color: rgba(229, 9, 20, 0.2);
+        }
+
+        .membership-card.type-manga {
+            border-left: 3px solid var(--manga-color);
+        }
+
+        .membership-card.type-manhwa {
+            border-left: 3px solid var(--manhwa-color);
+        }
+
+        .mc-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .mc-id {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .mc-plan {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .mc-plan .type-tag {
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 999px;
+            margin-left: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mc-plan .type-tag.manga {
+            background: rgba(229, 9, 20, 0.15);
+            color: var(--manga-color);
+        }
+
+        .mc-plan .type-tag.manhwa {
+            background: rgba(247, 151, 30, 0.15);
+            color: var(--manhwa-color);
+        }
+
+        .mc-pill {
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .mc-pill.active {
+            background: rgba(70, 211, 105, 0.12);
+            color: var(--green);
+        }
+
+        .mc-pill.pending {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .mc-pill.rejected {
+            background: rgba(229, 9, 20, 0.12);
+            color: var(--red);
+        }
+
+        .mc-countdown {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .mc-countdown span {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-family: 'Inter';
+            margin-left: 3px;
+            font-weight: 600;
+        }
+
+        .mc-countdown .countdown-number {
+            color: var(--gold);
+        }
+
+        .mc-expiry-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+
+        .mc-expiry-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mc-expiry-date {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .mc-bar-track {
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .mc-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            transition: width 0.4s ease;
+        }
+
+        .mc-meta-list {
+            margin-top: 12px;
+            display: grid;
+            gap: 5px;
+        }
+
+        .order-meta-row {
+            display: flex;
+            gap: 8px;
+            font-size: 11px;
+        }
+
+        .order-meta-label {
+            min-width: 60px;
+            color: var(--text-muted);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 9px;
+            letter-spacing: 0.06em;
+        }
+
+        .order-meta-value {
+            color: var(--text-secondary);
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .mc-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .order-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .order-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .order-btn.del {
+            color: var(--red);
+            border-color: rgba(229, 9, 20, 0.2);
+        }
+
+        .order-btn.del:hover {
+            background: rgba(229, 9, 20, 0.08);
+        }
+
+        .order-btn.res {
+            color: var(--green);
+            border-color: rgba(70, 211, 105, 0.2);
+        }
+
+        .order-btn.res:hover {
+            background: rgba(70, 211, 105, 0.08);
+        }
+
+        .order-btn[style*="flex:1"] {
+            width: auto;
+            padding: 0 14px;
+            gap: 6px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .hist-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            gap: 10px;
+        }
+
+        .hist-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .btn-refresh {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s ease;
+        }
+
+        .btn-refresh:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .empty-box {
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px dashed var(--border);
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* OVERLAY */
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #333;
+            border-top: 3px solid var(--red);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            animation: spin 0.85s infinite linear;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .receipt {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .receipt h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            margin-top: 10px;
+        }
+
+        .receipt-id {
+            background: var(--green);
+            color: #000;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            margin: 16px 0;
+            display: inline-block;
+            font-size: 1.2rem;
+        }
+
+        .receipt-info {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            font-size: 12px;
+        }
+
+        .receipt-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .receipt-row span:first-child {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .receipt-row span:last-child {
+            font-weight: 700;
+            text-align: right;
+            color: var(--text-primary);
+        }
+
+        /* ⭐ RECEIPT ACTIONS - Done Button Only */
+        .receipt-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .receipt-done {
+            background: var(--red);
+            color: #fff;
+            padding: 14px;
+            border-radius: 6px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 13px;
+            transition: all 0.2s ease;
+        }
+
+        .receipt-done:hover {
+            background: var(--red-hover);
+        }
+
+        /* TOAST */
+        #toast {
+            visibility: hidden;
+            opacity: 0;
+            background: #fff;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 6px;
+            position: fixed;
+            left: 50%;
+            bottom: 72px;
+            transform: translateX(-50%) translateY(8px);
+            z-index: 5000;
+            font-weight: 800;
+            font-size: 11px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* TELEGRAM FLOAT */
+        .tg-float {
+            position: fixed;
+            bottom: 78px;
+            right: 16px;
+            width: 50px;
+            height: 50px;
+            background: #24A1DE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 22px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+            z-index: 850;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .tg-float:hover {
+            transform: scale(1.05);
+        }
+
+        .tg-label {
+            position: absolute;
+            right: 60px;
+            background: var(--bg-card);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            white-space: nowrap;
+            opacity: 0;
+            transition: 0.25s;
+            pointer-events: none;
+            border: 1px solid var(--border);
+        }
+
+        .tg-float:hover .tg-label {
+            opacity: 1;
+        }
+
+        /* BOTTOM NAV */
+        .bottom-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 900;
+            background: rgba(20, 20, 20, 0.98);
+            border-top: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
+        }
+
+        .bottom-nav-inner {
+            max-width: 560px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2px;
+        }
+
+        .nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            padding: 6px 2px;
+            border-radius: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab i {
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-tab.active {
+            color: #fff;
+        }
+
+        .nav-tab.active i {
+            color: var(--red);
+        }
+
+        .nav-tab:hover {
+            color: #fff;
+        }
+
+        /* TRASH */
+        #trashBox {
+            display: none;
+        }
+
+        /* SCROLL TARGET */
+        .scroll-target {
+            scroll-margin-top: 80px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .ticket-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .ticket-grid .ticket {
+                min-height: 120px;
+                padding: 12px 8px;
+            }
+            .ticket-grid .ticket .ticket-amount {
+                font-size: 1.1rem;
+            }
+            .vip-story-carousel {
+                gap: 6px;
+            }
+            .vip-story-item {
+                min-height: 120px;
+                padding: 8px 6px;
+            }
+            .vip-story-item .vip-emoji {
+                font-size: 22px;
+            }
+            .vip-story-item .vip-value {
+                font-size: 8px;
+            }
+            .order-type-selector {
+                flex-direction: column;
+            }
+            .receipt-actions {
+                flex-direction: column;
+            }
+            .btn-login {
+                font-size: 11px;
+                padding: 12px 16px;
+                min-height: 44px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="toast">✅ Copied</div>
+
+    <!-- OVERLAY: Success/Enrollment -->
+    <div id="overlay">
+        <div id="loading-ui">
+            <div class="spinner"></div>
+            <p style="font-weight:800;color:var(--text-muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">
+                Sending enrollment…</p>
+        </div>
+        <!-- ⭐ SUCCESS UI - Login Buttons ဖယ်ရှားပြီး Done ပဲကျန် -->
+        <div class="receipt" style="display:none;" id="success-ui">
+            <div style="width:90px;height:90px;margin:0 auto;display:flex;align-items:center;justify-content:center;">
+                <i class="fa-solid fa-circle-check" style="font-size:90px;color:var(--green);"></i>
+            </div>
+            <h2>Enrollment sent</h2>
+            <div class="receipt-id" id="display-order-id">#SL-0000</div>
+            <div class="receipt-info">
+                <div class="receipt-row"><span>Name</span><span id="res-name">---</span></div>
+                <div class="receipt-row"><span>Plan</span><span id="res-plan">---</span></div>
+                <div class="receipt-row"><span>Type</span><span id="res-type">---</span></div>
+                <div class="receipt-row"><span>Payment</span><span id="res-payment">---</span></div>
+                <div class="receipt-row"><span>Status</span><span style="color:var(--gold);font-weight:800;">Pending review</span></div>
+            </div>
+            <div class="receipt-actions">
+                <button type="button" class="receipt-done" onclick="location.reload()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="topbar" id="topbar">
+        <div class="topbar-inner">
+            <div class="brand">Studio <span class="dot">Lumen</span></div>
+            <div class="nav-actions">
+                <div id="shop-status-ui"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <span class="hero-badge">🔥 Limited Seats</span>
+            <h1 class="serif">Design Your Craft</h1>
+            <p>Manga / Manhwa — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div id="page-overview">
+            
+            <!-- VIP Features -->
+            <section class="scroll-target" aria-labelledby="vip-heading" style="background:var(--bg-primary);padding:8px 0 12px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:0 12px 10px;">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                        <span style="font-size:18px;">⭐</span>
+                        <h3 style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--text-primary);margin:0;">VIP မှာဘာတွေပါလဲ</h3>
+                    </div>
+                </div>
+                
+                <div style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;">
+                    <style>
+                        .fb-story-carousel::-webkit-scrollbar { display:none; }
+                    </style>
+                    
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.4);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://www.dropbox.com/scl/fi/158e1xv6zhdixkje4l0gm/Yennefer-By-Octokuro.gif?rlkey=ph3yt0mu6cyxqva56w3ac9jlr&st=7ai9q1kc&dl=1" 
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Cosplayer</span>
+                        </div>
+                    </div>
+                    
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(229,9,20,0.6);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://imgs.search.brave.com/YdacwXsHRNRAAaWbB_wnUbKmA2i4kIcSAt08TGKSl_M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y291Z2FyaWxsby5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjMvMTIvZ2lmLWhl/bnRhaS1iYWlzZS5n/aWY.gif" 
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">3D Hentai</span>
+                        </div>
+                    </div>
+                    
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.3);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2022/06/27/27592517.webp?width=620" 
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Hentai Mm</span>
+                        </div>
+                    </div>
+                    
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.4);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2017/01/18/17236238.webp?width=620" 
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Comic 18</span>
+                        </div>
+                    </div>
+                    
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2018/02/27/19171869.webp?width=620" 
+                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">AV Video</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="font-size:10px;color:var(--text-muted);text-align:center;margin:8px 16px 0;line-height:1.6;padding:0 4px;">
+                    အထပ်ပါဖော်ပြပါ ဟာများပါဝင်ပြီးကြော်ငြာများမပါပဲတိုက်ရိုက်ကြည့်ရှု/Downloadပြုလုပ်နိုင်ပါတယ်
+                </p>
+            </section>
+
+            <!-- Section 1: Sales Overview -->
+            <section id="syllabus-heading-wrap" class="scroll-target">
+                <h2 class="section-title" id="syllabus-heading"><span class="num">1</span>Sales overview</h2>
+                <div class="stat-grid" id="statGrid">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="fa-solid fa-users"></i></div>
+                        <div class="stat-label">Total enrollments</div>
+                        <div class="stat-value" id="stat-total">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <div class="stat-label">Total revenue</div>
+                        <div class="stat-value" id="stat-revenue">0 Ks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-circle-check"></i></div>
+                        <div class="stat-label">Approved</div>
+                        <div class="stat-value" id="stat-approved">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon slate"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div class="stat-label">Pending review</div>
+                        <div class="stat-value" id="stat-pending">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="stat-label">Rejected</div>
+                        <div class="stat-value" id="stat-rejected">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="fa-solid fa-tag"></i></div>
+                        <div class="stat-label">Coupons used</div>
+                        <div class="stat-value" id="stat-discount">0 Ks</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Plans -->
+            <section id="plans-heading" class="scroll-target">
+                <h2 class="section-title"><span class="num">2</span>Choose your access</h2>
+                
+                <div class="order-type-selector">
+                    <button type="button" class="order-type-btn active-manga" id="btnManga" onclick="selectOrderType('manga')">
+                        <i class="fa-solid fa-book-open"></i> Manga
+                        <span class="badge-type">COMICS</span>
+                    </button>
+                    <button type="button" class="order-type-btn" id="btnManhwa" onclick="selectOrderType('manhwa')">
+                        <i class="fa-solid fa-book"></i> Manhwa
+                        <span class="badge-type">WEBTOONS</span>
+                    </button>
+                </div>
+
+                <div class="ticket-grid" id="planGrid">
+                    <div class="ticket manga-plan" data-plan="4000" data-type="manga" role="button" tabindex="0">
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manga Basic</div>
+                        <div class="ticket-amount">4,000<span>Ks</span></div>
+                        <div class="ticket-meta">၁ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manga-plan" data-plan="10000" data-type="manga" role="button" tabindex="0">
+                        <span class="ticket-badge">Most picked</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manga Pro</div>
+                        <div class="ticket-amount">10,000<span>Ks</span></div>
+                        <div class="ticket-meta">၃ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manga-plan" data-plan="18000" data-type="manga" role="button" tabindex="0">
+                        <span class="ticket-badge gold">Best value</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manga Premium</div>
+                        <div class="ticket-amount">18,000<span>Ks</span></div>
+                        <div class="ticket-meta">၆ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manga-plan" data-plan="25000" data-type="manga" role="button" tabindex="0">
+                        <span class="ticket-badge green">Lifetime</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-crown crown"></i></div>
+                        <div class="ticket-label">Manga Lifetime</div>
+                        <div class="ticket-amount">25,000<span>Ks</span></div>
+                        <div class="ticket-meta">တစ်သက်တာ</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <div class="ticket manhwa-plan" data-plan="5000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manhwa Basic</div>
+                        <div class="ticket-amount">5,000<span>Ks</span></div>
+                        <div class="ticket-meta">၁ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manhwa-plan" data-plan="12000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                        <span class="ticket-badge">Most picked</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manhwa Pro</div>
+                        <div class="ticket-amount">12,000<span>Ks</span></div>
+                        <div class="ticket-meta">၃ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manhwa-plan" data-plan="22000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                        <span class="ticket-badge gold">Best value</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
+                        <div class="ticket-label">Manhwa Premium</div>
+                        <div class="ticket-amount">22,000<span>Ks</span></div>
+                        <div class="ticket-meta">၆ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket manhwa-plan" data-plan="30000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                        <span class="ticket-badge green">Lifetime</span>
+                        <div class="ticket-stub"><i class="fa-solid fa-crown crown"></i></div>
+                        <div class="ticket-label">Manhwa Lifetime</div>
+                        <div class="ticket-amount">30,000<span>Ks</span></div>
+                        <div class="ticket-meta">တစ်သက်တာ</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: FAQ -->
+            <section id="faq-heading" class="scroll-target">
+                <h2 class="section-title"><span class="num">3</span>Questions</h2>
+                <div class="faq-item active">
+                    <div class="faq-q">ဝယ်ပြီးရင် ဘယ်လောက်ကြာ access ဖွင့်ပေးမလဲ? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-a">ပုံမှန်အားဖြင့် ၁၅–၃၀ မိနစ်အတွင်း Admin မှ slip စစ်ပြီး access ဖွင့်ပေးပါသည်။</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Manga နဲ့ Manhwa ဘာကွာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-a">Manga က ဂျပန်ကာတွန်း၊ Manhwa က ကိုရီးယားဝဘ်တွန်း ဖြစ်ပါတယ်။ နှစ်ခုလုံးကို သီးခြားစီဝယ်ယူနိုင်ပါတယ်။</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Lifetime plan ဆိုတာဘာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
+                    <div class="faq-a">Lifetime plan ဆိုတာ တစ်ခါပေးရုံနဲ့ တစ်သက်တာ access ရမယ့် plan ဖြစ်ပါတယ်။</div>
+                </div>
+            </section>
+
+            <!-- Section 4: Pay -->
+            <section id="pay-heading" class="scroll-target">
+                <h2 class="section-title"><span class="num">4</span>Pay</h2>
+                <div class="pay-card">
+                    <div class="field" style="text-align:left;">
+                        <label>Select Payment Method</label>
+                        <select id="paymentMethod" onchange="updatePaymentInfo()">
+                            <option value="kpay">K Pay</option>
+                            <option value="aya">AYA Pay</option>
+                            <option value="wave">Wave Pay</option>
+                        </select>
+                    </div>
+                    <div class="pay-detail" id="paymentDetail">
+                        <span class="pay-label" id="paymentLabel">K Pay Transfer</span>
+                        <div class="pay-qr-wrap"><img id="paymentQr" class="pay-qr" src="" alt="Payment QR Code"></div>
+                        <span class="pay-num serif" id="paymentNumber">09xxxxxxxxx</span>
+                        <p class="pay-name" id="paymentName">Account name</p>
+                        <p class="pay-note" id="paymentNote">Scan the QR or transfer to the number above.</p>
+                        <button type="button" class="copy-btn" onclick="copySelectedPayment()">Copy number</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Enroll -->
+            <section id="order-heading" class="scroll-target">
+                <h2 class="section-title"><span class="num">5</span>Enroll</h2>
+                <div class="card" id="formCard">
+                    <form id="orderForm">
+                        <div class="field">
+                            <label>Order Type</label>
+                            <div style="display:flex;gap:10px;">
+                                <span id="displayOrderType" style="background:var(--bg-card);padding:8px 16px;border-radius:6px;border:1px solid var(--border);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;">
+                                    <i class="fa-solid fa-book-open" id="orderTypeIcon"></i>
+                                    <span id="orderTypeText">Manga</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field"><label>Name</label><input type="text" id="name" placeholder="သင့်အမည်" autocomplete="name"></div>
+                        <div class="field">
+                            <label>Password</label>
+                            <div class="pass-wrap">
+                                <input type="password" id="pass" placeholder="အနည်းဆုံး ၆ လုံး" autocomplete="new-password">
+                                <i class="fa-solid fa-eye-slash toggle-pass" id="togglePass" role="button" tabindex="0" aria-label="Show password"></i>
+                            </div>
+                        </div>
+                        <!-- ⭐ Transfer ID - maxlength 6 ထည့်ထားတယ် -->
+                        <div class="field">
+                            <label>Transfer ID (နောက်ဆုံး ၆ လုံး)</label>
+                            <input type="text" id="transferId" placeholder="ဥပမာ - 123456" maxlength="6" autocomplete="off">
+                            <span class="field-hint">ငွေလွှဲထားတဲ့ slip ထဲက နောက်ဆုံး အတိအကျ ၆ လုံးကို ထည့်ပါ</span>
+                        </div>
+                        <div class="field">
+                            <label>Plan</label>
+                            <select id="plan" onchange="updatePrice()">
+                                <option value="4000" data-days="30" data-type="manga">Manga Basic — 4,000 Ks</option>
+                                <option value="10000" data-days="90" data-type="manga" selected>Manga Pro — 10,000 Ks</option>
+                                <option value="18000" data-days="180" data-type="manga">Manga Premium — 18,000 Ks</option>
+                                <option value="25000" data-days="3650" data-type="manga">Manga Lifetime — 25,000 Ks</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Payment Method</label>
+                            <select id="enrollPaymentMethod">
+                                <option value="kpay">K Pay</option>
+                                <option value="aya">AYA Pay</option>
+                                <option value="wave">Wave Pay</option>
+                            </select>
+                            <span class="field-hint">ငွေလွှဲမည့် ဘဏ်ကို ရွေးပါ</span>
+                        </div>
+                        <div class="field">
+                            <label>Coupon</label>
+                            <div class="coupon-row">
+                                <input type="text" id="couponInput" placeholder="ကုဒ် ရှိရင် ထည့်ပါ">
+                                <button type="button" class="btn-apply" onclick="applyCoupon()">Apply</button>
+                            </div>
+                            <div id="coupon-expiry" class="coupon-note">No coupon applied</div>
+                        </div>
+                        <div class="field"><label>Payment slip</label><input type="file" id="file" accept="image/*" style="padding-top:12px;"></div>
+                        <div id="price-display" class="price-total">Total: 10,000 Ks</div>
+                        <button type="button" class="btn-submit" id="submitBtn" onclick="sendOrder()">Confirm enrollment</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Section 6: Profile -->
+            <section id="profile-heading-wrap" class="scroll-target">
+                <div class="profile-header">
+                    <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+                    <div>
+                        <h2 class="serif" id="profile-heading">My Profile</h2>
+                        <p>Your enrollments and access expiry, at a glance</p>
+                    </div>
+                </div>
+                
+                <!-- ⭐ PROFILE - Quick Links (Manga & Manhwa) -->
+                <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+                    <a href="https://your-manga-link.com" target="_blank" class="btn-login manga-login" style="flex:1;text-decoration:none;justify-content:center;">
+                        <i class="fa-solid fa-book-open"></i> Go to Manga
+                    </a>
+                    <a href="https://your-manhwa-link.com" target="_blank" class="btn-login manhwa-login" style="flex:1;text-decoration:none;justify-content:center;">
+                        <i class="fa-solid fa-book"></i> Go to Manhwa
+                    </a>
+                </div>
+
+                <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+                    <button type="button" class="btn-refresh" onclick="manualSync()" style="flex:1;">
+                        <i class="fa-solid fa-rotate"></i> Refresh
+                    </button>
+                    <button type="button" class="btn-refresh" style="background:transparent;color:var(--text-muted);border:1px solid var(--border);" onclick="openTrashBox()">
+                        <i class="fa-solid fa-trash"></i> Trash
+                    </button>
+                </div>
+
+                <div class="card" style="margin-bottom:14px;">
+                    <div class="hist-head" style="margin-bottom:0;">
+                        <div class="hist-title"><i class="fa-solid fa-graduation-cap" style="margin-right:6px;opacity:0.85;"></i>My Enrollments</div>
+                    </div>
+                </div>
+                <div id="orderList"></div>
+            </section>
+
+            <!-- Trash Section -->
+            <section id="trashBox" aria-live="polite">
+                <h2 class="section-title"><span class="num"><i class="fa-solid fa-trash" style="font-size:9px;"></i></span>Trash</h2>
+                <div class="card" style="margin-bottom:14px;">
+                    <div class="hist-head" style="margin-bottom:0;">
+                        <div class="hist-title">Deleted enrollments</div>
+                        <button type="button" class="btn-refresh" onclick="restoreAllOrders()">Restore all</button>
+                    </div>
+                </div>
+                <div id="trashList"></div>
+            </section>
+        </div>
+    </main>
+
+    <a href="https://t.me/thawminhtet" target="_blank" rel="noopener noreferrer" class="tg-float" aria-label="Contact on Telegram">
+        <span class="tg-label">Contact admin</span>
+        <i class="fa-brands fa-telegram"></i>
+    </a>
+
+    <nav class="bottom-nav" aria-label="App navigation">
+        <div class="bottom-nav-inner">
+            <button type="button" class="nav-tab active" data-target="syllabus-heading-wrap"><i class="fa-solid fa-chart-pie"></i>Overview</button>
+            <button type="button" class="nav-tab" data-target="plans-heading"><i class="fa-solid fa-th"></i>Plans</button>
+            <button type="button" class="nav-tab" data-target="pay-heading"><i class="fa-solid fa-credit-card"></i>Pay</button>
+            <button type="button" class="nav-tab" data-target="order-heading"><i class="fa-solid fa-pen-to-square"></i>Enroll</button>
+            <button type="button" class="nav-tab" data-target="profile-heading-wrap"><i class="fa-solid fa-user"></i>Profile</button>
+        </div>
+    </nav>
+
+    <script>
+        /* ====================================================================
+           SECURITY NOTE
+           Replace these with calls to your own backend (Cloud Function /
+           serverless endpoint). Never ship a Telegram bot token in client-side
+           JS in production — anyone viewing source can read and abuse it.
+        ==================================================================== */
+        const BOT_TOKEN = "8724430257:AAEaD2LiI-8plYwnPQpslnj9idBtsr_dbSk";
+        const CHAT_ID = "1846575486";
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyHcq1mHadqGlanxQZmWykeNovMX2oDcg7P7NXqGQ2fflB8gMo9Q6ekozjFLZ-muASt/exec";
+
+        let discount = 0;
+        let appliedCouponCode = '';
+        let isTrashOpen = false;
+        let countdownInterval = null;
+        let currentOrderType = 'manga';
+        const COUPON_USAGE_KEY = 'lumen_coupon_usage';
+        const COUPONS = {
+            WELCOME500: { discount: 500, expiry: "2026-02-31", usageType: "one_time" },
+            COHORT1000: { discount: 1000, expiry: "2026-12-31", usageType: "limited", maxUses: 20 },
+            FAN1500: { discount: 1500, expiry: "2026-12-31", usageType: "multi" }
+        };
+
+        const PLAN_DATA = {
+            manga: {
+                label: 'Manga',
+                icon: 'fa-book-open',
+                plans: [
+                    { value: '4000', days: 30, label: 'Manga Basic — 4,000 Ks' },
+                    { value: '10000', days: 90, label: 'Manga Pro — 10,000 Ks' },
+                    { value: '18000', days: 180, label: 'Manga Premium — 18,000 Ks' },
+                    { value: '25000', days: 3650, label: 'Manga Lifetime — 25,000 Ks' }
+                ]
+            },
+            manhwa: {
+                label: 'Manhwa',
+                icon: 'fa-book',
+                plans: [
+                    { value: '5000', days: 30, label: 'Manhwa Basic — 5,000 Ks' },
+                    { value: '12000', days: 90, label: 'Manhwa Pro — 12,000 Ks' },
+                    { value: '22000', days: 180, label: 'Manhwa Premium — 22,000 Ks' },
+                    { value: '30000', days: 3650, label: 'Manhwa Lifetime — 30,000 Ks' }
+                ]
+            }
+        };
+
+        const PAYMENT_METHODS = {
+            kpay: { 
+                label: "K Pay", 
+                number: "0987654321", 
+                accountName: "Studio Lumen (K Pay)", 
+                note: "ကျောင်းသားများအတွက် K Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+                qrSrc: "https://i.ibb.co/your-kpay-qr-image.png",
+                hasQr: true 
+            },
+            aya: { 
+                label: "AYA Pay", 
+                number: "0987654322", 
+                accountName: "Studio Lumen (AYA Pay)", 
+                note: "ကျောင်းသားများအတွက် AYA Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+                qrSrc: "https://i.ibb.co/your-aya-qr-image.png",
+                hasQr: true 
+            },
+            wave: { 
+                label: "Wave Pay", 
+                number: "0987654323", 
+                accountName: "Studio Lumen (Wave Pay)", 
+                note: "ကျောင်းသားများအတွက် Wave Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+                qrSrc: "https://i.ibb.co/your-wave-qr-image.png",
+                hasQr: true 
+            }
+        };
+
+        // SELECT ORDER TYPE
+        function selectOrderType(type) {
+            currentOrderType = type;
+            
+            $('#btnManga').removeClass('active-manga active-manhwa');
+            $('#btnManhwa').removeClass('active-manga active-manhwa');
+            if (type === 'manga') {
+                $('#btnManga').addClass('active-manga');
+            } else {
+                $('#btnManhwa').addClass('active-manhwa');
+            }
+            
+            if (type === 'manga') {
+                $('.manga-plan').show();
+                $('.manhwa-plan').hide();
+            } else {
+                $('.manga-plan').hide();
+                $('.manhwa-plan').show();
+            }
+            
+            const data = PLAN_DATA[type];
+            $('#orderTypeIcon').removeClass('fa-book-open fa-book').addClass(data.icon);
+            $('#orderTypeText').text(data.label);
+            $('#displayOrderType').css('border-color', type === 'manga' ? 'var(--manga-color)' : 'var(--manhwa-color)');
+            
+            updatePlanDropdown(type);
+            $('.ticket-grid .ticket').removeClass('selected');
+            updatePrice();
+        }
+
+        function updatePlanDropdown(type) {
+            const data = PLAN_DATA[type];
+            const $select = $('#plan');
+            $select.empty();
+            data.plans.forEach((p, index) => {
+                const selected = index === 0 ? 'selected' : '';
+                $select.append(`<option value="${p.value}" data-days="${p.days}" data-type="${type}" ${selected}>${p.label}</option>`);
+            });
+            updatePrice();
+        }
+
+        $(document).ready(function () {
+            selectOrderType('manga');
+            
+            displayOrderHistory();
+            displayTrashHistory();
+            displayStats();
+            updateShopStatus();
+            updatePrice();
+            updatePaymentInfo();
+            
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(function() {
+                updateAllCountdowns();
+            }, 1000);
+            
+            setInterval(syncHistoryWithServer, 10000);
+            setInterval(displayStats, 5000);
+
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 50) {
+                    $('#topbar').addClass('scrolled');
+                } else {
+                    $('#topbar').removeClass('scrolled');
+                }
+            });
+
+            $('.ticket-grid .ticket').on('click', function () { 
+                const plan = $(this).data('plan');
+                const type = $(this).data('type');
+                if (type && type !== currentOrderType) return;
+                selectPlan(plan, true); 
+            });
+            $('.ticket-grid .ticket').on('keydown', function (e) { 
+                if (e.key === 'Enter' || e.key === ' ') { 
+                    e.preventDefault(); 
+                    const plan = $(this).data('plan');
+                    const type = $(this).data('type');
+                    if (type && type !== currentOrderType) return;
+                    selectPlan(plan, true); 
+                } 
+            });
+            $('#paymentMethod').on('change', updatePaymentInfo);
+            $('#couponInput').on('input', handleCouponInputChange);
+
+            $('.nav-tab').on('click', function () {
+                const targetId = $(this).data('target');
+                $('.nav-tab').removeClass('active');
+                $(this).addClass('active');
+                const el = document.getElementById(targetId);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                if (targetId === 'profile-heading-wrap') {
+                    isTrashOpen = false;
+                    $('#trashBox').hide();
+                    displayOrderHistory();
+                }
+            });
+
+            $('.faq-q').click(function () { $(this).parent().toggleClass('active').siblings().removeClass('active'); });
+            $('#togglePass').click(function () {
+                const input = $('#pass');
+                if (input.attr('type') === 'password') { 
+                    input.attr('type', 'text'); 
+                    $(this).removeClass('fa-eye-slash').addClass('fa-eye').css('color', 'var(--text-primary)'); 
+                } else { 
+                    input.attr('type', 'password'); 
+                    $(this).removeClass('fa-eye').addClass('fa-eye-slash').css('color', 'var(--text-muted)'); 
+                }
+            });
+        });
+
+        function updateShopStatus() {
+            const hour = new Date().getHours();
+            const isOpen = (hour >= 9 && hour < 23);
+            if (isOpen) { 
+                $('#shop-status-ui').html('<div class="status-chip status-on">● Open</div>'); 
+                $('#submitBtn').prop('disabled', false).text("Confirm enrollment"); 
+            } else { 
+                $('#shop-status-ui').html('<div class="status-chip status-off">● Closed · 9AM–11PM</div>'); 
+                $('#submitBtn').prop('disabled', true).text("Enrollment closed"); 
+            }
+        }
+
+        function syncSelectedPlanCard() {
+            const selectedPlan = String($('#plan').val() || '');
+            $('.ticket-grid .ticket').each(function () { 
+                $(this).toggleClass('selected', String($(this).data('plan')) === selectedPlan && $(this).data('type') === currentOrderType); 
+            });
+        }
+
+        function selectPlan(planValue, shouldScroll) {
+            const v = String(planValue || '');
+            if (!$(`#plan option[value="${v}"]`).length) return;
+            $('#plan').val(v); 
+            updatePrice();
+            if (shouldScroll) { 
+                $('.nav-tab').removeClass('active');
+                $('.nav-tab[data-target="order-heading"]').addClass('active');
+                const el = document.getElementById('order-heading'); 
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+            }
+        }
+
+        function getPlanDaysByValue(planValue) {
+            const v = String(planValue || '');
+            const opt = $(`#plan option[value="${v}"]`);
+            const d = parseInt(opt.attr('data-days'), 10);
+            if (!Number.isNaN(d)) return d;
+            return 30;
+        }
+
+        function getSelectedPayment() { 
+            return PAYMENT_METHODS[$('#paymentMethod').val()] || PAYMENT_METHODS.kpay; 
+        }
+
+        function updatePaymentInfo() {
+            const p = getSelectedPayment();
+            $('#paymentLabel').text(`${p.label} Transfer`);
+            $('#paymentNumber').text(p.number);
+            $('#paymentName').text(p.accountName);
+            $('#paymentNote').text(p.note);
+            $('#paymentDetail').toggleClass('no-qr', !p.hasQr);
+            if (p.hasQr && p.qrSrc) {
+                $('#paymentQr').attr('src', p.qrSrc).attr('alt', `${p.label} QR Code`).show();
+            } else {
+                $('#paymentQr').hide();
+            }
+        }
+
+        function copySelectedPayment() { 
+            copyToClipboard(getSelectedPayment().number); 
+        }
+
+        function openTrashBox() { 
+            isTrashOpen = true; 
+            $('#trashBox').show(); 
+            displayTrashHistory(); 
+            setTimeout(function() {
+                const el = document.getElementById('trashBox');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        function updatePrice() {
+            let base = parseInt($('#plan').val(), 10) || 0;
+            let final = Math.max(base - discount, 0);
+            $('#price-display').html(discount > 0 ? `<span class="strike">${base} Ks</span> ${final} Ks` : `Total: ${final} Ks`);
+            $('#formCard').toggleClass('glow', base >= 10000);
+            syncSelectedPlanCard();
+        }
+
+        function getFinalAmount() {
+            const basePrice = parseInt($('#plan').val()) || 0;
+            const discountAmount = Math.max(discount, 0);
+            return { basePrice, discountAmount, finalPrice: Math.max(basePrice - discountAmount, 0) };
+        }
+
+        function normalizeCouponCode(code) { return String(code || '').trim().toUpperCase(); }
+
+        function getCouponUsageStore() { return JSON.parse(localStorage.getItem(COUPON_USAGE_KEY)) || {}; }
+
+        function saveCouponUsageStore(s) { localStorage.setItem(COUPON_USAGE_KEY, JSON.stringify(s)); }
+
+        function getCouponMaxUses(c) { 
+            if (!c) return 0; 
+            if (c.usageType === 'one_time') return 1; 
+            if (c.usageType === 'limited') return Math.max(parseInt(c.maxUses, 10) || 0, 0); 
+            return Infinity; 
+        }
+
+        function getCouponUsedCount(code) { 
+            const n = normalizeCouponCode(code); 
+            return Math.max(parseInt(getCouponUsageStore()[n], 10) || 0, 0); 
+        }
+
+        function getCouponRemainingUses(code, c) { 
+            const m = getCouponMaxUses(c); 
+            if (!Number.isFinite(m)) return Infinity; 
+            return Math.max(m - getCouponUsedCount(code), 0); 
+        }
+
+        function isCouponExpired(c) { 
+            if (!c || !c.expiry) return false; 
+            return Date.now() > new Date(`${c.expiry}T23:59:59`).getTime(); 
+        }
+
+        function getCouponStatus(code) {
+            const n = normalizeCouponCode(code);
+            if (!n) return { valid: false, reason: 'empty' };
+            const c = COUPONS[n];
+            if (!c) return { valid: false, reason: 'invalid', code: n };
+            if (isCouponExpired(c)) return { valid: false, reason: 'expired', code: n, coupon: c };
+            const remaining = getCouponRemainingUses(n, c);
+            if (c.usageType === 'one_time' && remaining <= 0) return { valid: false, reason: 'used', code: n, coupon: c, remaining };
+            if (c.usageType === 'limited' && remaining <= 0) return { valid: false, reason: 'exhausted', code: n, coupon: c, remaining };
+            return { valid: true, code: n, coupon: c, remaining };
+        }
+
+        function getCouponInfoText(code, c, remaining) {
+            const parts = [`Expiry: ${c.expiry || '-'}`];
+            if (c.usageType === 'one_time') parts.push('One-time');
+            else if (c.usageType === 'limited') parts.push(`Remaining: ${remaining}`);
+            else parts.push('Unlimited');
+            return `${code} | ${parts.join(' | ')}`;
+        }
+
+        function setCouponInfo(text, state = '') { 
+            $('#coupon-expiry').text(text).removeClass('ok bad'); 
+            if (state) $('#coupon-expiry').addClass(state); 
+        }
+
+        function clearAppliedCoupon(msg = 'No coupon applied', state = '') { 
+            appliedCouponCode = ''; 
+            discount = 0; 
+            setCouponInfo(msg, state); 
+            updatePrice(); 
+        }
+
+        function handleCouponInputChange() {
+            const cur = normalizeCouponCode($('#couponInput').val());
+            if (!cur) { clearAppliedCoupon(); return; }
+            if (appliedCouponCode && cur !== appliedCouponCode) clearAppliedCoupon('Coupon changed — apply again', 'bad');
+        }
+
+        function redeemCoupon(code) {
+            const n = normalizeCouponCode(code); 
+            if (!n) return;
+            const s = getCouponUsageStore(); 
+            s[n] = getCouponUsedCount(n) + 1; 
+            saveCouponUsageStore(s);
+        }
+
+        function applyCoupon() {
+            const status = getCouponStatus($('#couponInput').val());
+            if (!status.valid) {
+                if (status.reason === 'expired') { 
+                    clearAppliedCoupon(`${status.code} expired`, 'bad'); 
+                    showToast("Coupon expired"); 
+                    return; 
+                }
+                if (status.reason === 'used') { 
+                    clearAppliedCoupon(`${status.code} already used`, 'bad'); 
+                    showToast("Coupon already used"); 
+                    return; 
+                }
+                if (status.reason === 'exhausted') { 
+                    clearAppliedCoupon(`${status.code} no uses left`, 'bad'); 
+                    showToast("Coupon limit reached"); 
+                    return; 
+                }
+                clearAppliedCoupon(); 
+                showToast("Invalid coupon"); 
+                return;
+            }
+            appliedCouponCode = status.code; 
+            discount = status.coupon.discount;
+            setCouponInfo(getCouponInfoText(status.code, status.coupon, status.remaining), 'ok');
+            updatePrice();
+            showToast(`Coupon applied: -${discount} Ks`);
+        }
+
+        function getStoredOrders() { 
+            return JSON.parse(localStorage.getItem('lumen_orders')) || []; 
+        }
+
+        function saveStoredOrders(o) { 
+            localStorage.setItem('lumen_orders', JSON.stringify(o)); 
+        }
+
+        function pruneStoredOrders() {
+            const now = new Date().getTime();
+            let orders = getStoredOrders();
+            orders = orders.filter(o => o.deletedAt || o.status !== "approved" || (o.expiry - now > 0));
+            saveStoredOrders(orders);
+            return orders;
+        }
+
+        async function manualSync() { 
+            showToast("Syncing…"); 
+            await syncHistoryWithServer(); 
+        }
+
+        async function syncHistoryWithServer() {
+            let orders = getStoredOrders();
+            let changed = false;
+            for (let i = 0; i < orders.length; i++) {
+                if (!orders[i].active && orders[i].status !== "rejected") {
+                    try {
+                        const res = await fetch(`${WEB_APP_URL}?orderID=${encodeURIComponent(orders[i].id)}&t=${new Date().getTime()}`);
+                        const status = (await res.text()).trim().toLowerCase();
+                        if (status.includes("approved")) {
+                            const days = orders[i].durationDays || getPlanDaysByValue(orders[i].plan);
+                            orders[i].expiry = new Date().getTime() + (days * 24 * 60 * 60 * 1000);
+                            orders[i].active = true; 
+                            orders[i].status = "approved"; 
+                            changed = true;
+                        } else if (status.includes("reject")) { 
+                            orders[i].status = "rejected"; 
+                            changed = true; 
+                        }
+                    } catch (e) { }
+                }
+            }
+            if (changed) { 
+                saveStoredOrders(orders); 
+                displayOrderHistory(); 
+                displayTrashHistory(); 
+            }
+        }
+
+        function formatExpiryDate(ts) {
+            if (!ts) return '—';
+            return new Date(ts).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        function getOrderStatusMeta(order, now) {
+            if (order.status === 'rejected') {
+                return { 
+                    stateClass: 'is-rejected', 
+                    pillClass: 'rejected', 
+                    pillText: 'Rejected', 
+                    countdownHtml: '<span style="color:var(--red);">Not approved</span>', 
+                    expiryDate: '—', 
+                    progressPct: 0 
+                };
+            }
+            if (!order.active) {
+                return { 
+                    stateClass: 'is-pending', 
+                    pillClass: 'pending', 
+                    pillText: 'Pending review', 
+                    countdownHtml: '<span style="color:var(--text-muted);">⏳ Awaiting admin approval…</span>', 
+                    expiryDate: '—', 
+                    progressPct: 0 
+                };
+            }
+            const diff = order.expiry - now;
+            if (diff <= 0) {
+                return { 
+                    stateClass: 'is-rejected', 
+                    pillClass: 'rejected', 
+                    pillText: 'Expired', 
+                    countdownHtml: '<span style="color:var(--red);">⏰ Access expired</span>', 
+                    expiryDate: formatExpiryDate(order.expiry), 
+                    progressPct: 0 
+                };
+            }
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            const totalMs = (order.durationDays || 30) * 86400000;
+            const progressPct = Math.max(0, Math.min(100, (diff / totalMs) * 100));
+            
+            let countdownHtml = '';
+            if (d > 0) {
+                countdownHtml = `<span class="countdown-number">${d}</span><span>d</span> <span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+            } else if (h > 0) {
+                countdownHtml = `<span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+            } else if (m > 0) {
+                countdownHtml = `<span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+            } else {
+                countdownHtml = `<span class="countdown-number">${s}</span><span>s</span>`;
+            }
+            
+            return { 
+                stateClass: 'is-active', 
+                pillClass: 'active', 
+                pillText: 'Active', 
+                countdownHtml, 
+                expiryDate: formatExpiryDate(order.expiry), 
+                progressPct 
+            };
+        }
+
+        function escapeHtml(v) { 
+            return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); 
+        }
+
+        function renderOrderMetaRow(label, value, fallback = 'Not saved') {
+            const t = String(value ?? '').trim();
+            return `<div class="order-meta-row"><span class="order-meta-label">${label}</span><span class="order-meta-value">${t ? escapeHtml(t) : fallback}</span></div>`;
+        }
+
+        function renderOrderCard(order, now, options = {}) {
+            const meta = getOrderStatusMeta(order, now);
+            const secondary = options.deleted
+                ? `<button type="button" class="order-btn res" onclick="restoreOrder('${order.id}')" title="Restore"><i class="fa-solid fa-rotate-left"></i></button>`
+                : `<button type="button" class="order-btn del" onclick="moveOrderToTrash('${order.id}')" title="Move to trash"><i class="fa-solid fa-trash"></i></button>`;
+            const showBar = meta.pillClass === 'active';
+            const typeClass = order.orderType === 'manhwa' ? 'type-manhwa' : 'type-manga';
+            const typeLabel = order.orderType === 'manhwa' ? 'Manhwa' : 'Manga';
+            const typeTagClass = order.orderType === 'manhwa' ? 'manhwa' : 'manga';
+            
+            return `<div class="membership-card ${meta.stateClass} ${typeClass}" data-order-id="${order.id}" data-expiry="${order.expiry || ''}">
+                <div class="mc-top">
+                  <div>
+                    <div class="mc-id">${escapeHtml(order.id)}</div>
+                    <div class="mc-plan serif">
+                        ${escapeHtml(order.planText || '')}
+                        <span class="type-tag ${typeTagClass}">${typeLabel}</span>
+                    </div>
+                  </div>
+                  <span class="mc-pill ${meta.pillClass}">${meta.pillText}</span>
+                </div>
+                <div class="mc-countdown">${meta.countdownHtml}</div>
+                ${showBar ? `
+                <div class="mc-expiry-row">
+                  <span class="mc-expiry-label">Expires on</span>
+                  <span class="mc-expiry-date">${meta.expiryDate}</span>
+                </div>
+                <div class="mc-bar-track"><div class="mc-bar-fill" style="width:${meta.progressPct.toFixed(1)}%;"></div></div>
+                ` : `<div class="mc-expiry-row"><span class="mc-expiry-label">Expires on</span><span class="mc-expiry-date">${meta.expiryDate}</span></div>`}
+                <div class="mc-meta-list">
+                  ${renderOrderMetaRow('Name', order.name)}
+                  ${order.transferId ? renderOrderMetaRow('Transfer ID', order.transferId) : ''}
+                  ${order.paymentMethod ? renderOrderMetaRow('Payment', order.paymentMethod) : ''}
+                  ${renderOrderMetaRow('Type', typeLabel)}
+                </div>
+                <div class="mc-actions">
+                  <button type="button" class="order-btn" onclick="copyToClipboard('${order.id}')" title="Copy ID" style="flex:1;width:auto;"><i class="fa-regular fa-copy"></i>&nbsp; Copy ID</button>
+                  ${secondary}
+                </div>
+              </div>`;
+        }
+
+        function updateAllCountdowns() {
+            const now = new Date().getTime();
+            $('.membership-card.is-active').each(function() {
+                const expiry = parseInt($(this).data('expiry'));
+                if (!expiry) return;
+                const diff = expiry - now;
+                if (diff <= 0) {
+                    displayOrderHistory();
+                    return;
+                }
+                const d = Math.floor(diff / 86400000);
+                const h = Math.floor((diff % 86400000) / 3600000);
+                const m = Math.floor((diff % 3600000) / 60000);
+                const s = Math.floor((diff % 60000) / 1000);
+                
+                let html = '';
+                if (d > 0) {
+                    html = `<span class="countdown-number">${d}</span><span>d</span> <span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+                } else if (h > 0) {
+                    html = `<span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+                } else if (m > 0) {
+                    html = `<span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
+                } else {
+                    html = `<span class="countdown-number">${s}</span><span>s</span>`;
+                }
+                $(this).find('.mc-countdown').html(html);
+            });
+        }
+
+        function displayOrderHistory() {
+            let orders = pruneStoredOrders().filter(o => !o.deletedAt);
+            if (orders.length === 0) { 
+                $('#orderList').html('<div class="empty-box">No active enrollments yet.</div>'); 
+                return; 
+            }
+            const now = new Date().getTime();
+            let html = ''; 
+            orders.slice().reverse().forEach(o => html += renderOrderCard(o, now));
+            $('#orderList').html(html);
+        }
+
+        function displayTrashHistory() {
+            let orders = pruneStoredOrders().filter(o => o.deletedAt);
+            if (orders.length === 0) { 
+                $('#trashList').html('<div class="empty-box">Trash is empty.</div>'); 
+                $('#trashBox').toggle(isTrashOpen); 
+                return; 
+            }
+            const now = new Date().getTime();
+            let html = ''; 
+            orders.slice().reverse().forEach(o => html += renderOrderCard(o, now, { deleted: true }));
+            $('#trashList').html(html); 
+            if (isTrashOpen) $('#trashBox').show();
+        }
+
+        function moveOrderToTrash(id) {
+            let orders = getStoredOrders(); 
+            let changed = false;
+            orders = orders.map(o => { 
+                if (o.id === id && !o.deletedAt) { 
+                    changed = true; 
+                    return { ...o, deletedAt: new Date().toISOString() }; 
+                } 
+                return o; 
+            });
+            if (!changed) return;
+            saveStoredOrders(orders); 
+            displayOrderHistory(); 
+            displayTrashHistory(); 
+            showToast("Moved to trash");
+        }
+
+        function restoreOrder(id) {
+            let orders = getStoredOrders(); 
+            let changed = false;
+            orders = orders.map(o => { 
+                if (o.id === id && o.deletedAt) { 
+                    changed = true; 
+                    const r = { ...o }; 
+                    delete r.deletedAt; 
+                    return r; 
+                } 
+                return o; 
+            });
+            if (!changed) return;
+            saveStoredOrders(orders); 
+            displayOrderHistory(); 
+            displayTrashHistory(); 
+            showToast("Restored");
+        }
+
+        function restoreAllOrders() {
+            let orders = getStoredOrders();
+            if (!orders.some(o => o.deletedAt)) return;
+            orders = orders.map(o => { 
+                if (!o.deletedAt) return o; 
+                const r = { ...o }; 
+                delete r.deletedAt; 
+                return r; 
+            });
+            saveStoredOrders(orders); 
+            displayOrderHistory(); 
+            displayTrashHistory(); 
+            showToast("All restored");
+        }
+
+        function displayStats() {
+            const orders = getStoredOrders().filter(o => !o.deletedAt);
+            const total = orders.length;
+            const approved = orders.filter(o => o.status === 'approved').length;
+            const pending = orders.filter(o => o.status === 'pending' || (!o.active && o.status !== 'rejected')).length;
+            const rejected = orders.filter(o => o.status === 'rejected').length;
+            
+            const activeOrders = orders.filter(o => o.status !== 'rejected');
+            const revenue = activeOrders.reduce((sum, o) => sum + (Number(o.payableAmount) || 0), 0);
+            const discountUsed = activeOrders.reduce((sum, o) => sum + (Number(o.discountAmount) || 0), 0);
+            
+            $('#stat-total').text(total);
+            $('#stat-revenue').text(revenue.toLocaleString() + ' Ks');
+            $('#stat-approved').text(approved);
+            $('#stat-pending').text(pending);
+            $('#stat-rejected').text(rejected);
+            $('#stat-discount').text(discountUsed.toLocaleString() + ' Ks');
+        }
+
+        function copyToClipboard(t) { 
+            navigator.clipboard.writeText(t).then(() => showToast("✅ Copied")); 
+        }
+
+        function showToast(m) { 
+            $('#toast').text(m).addClass('show'); 
+            setTimeout(() => $('#toast').removeClass('show'), 2000); 
+        }
+
+        // ⭐ sendOrder() - Transfer ID ကို ၆ လုံးအတိအကျပဲ လက်ခံမယ်
+        async function sendOrder() {
+            const name = $('#name').val().trim();
+            const pass = $('#pass').val().trim();
+            const transferId = $('#transferId').val().trim();
+            const file = document.getElementById('file').files[0];
+            
+            if (!name || !pass || !file) return alert("အချက်အလက်ပြည့်စုံစွာဖြည့်ပါ");
+            
+            // ⭐ Transfer ID စစ်ဆေးခြင်း - ၆ လုံးအတိအကျ
+            if (!transferId || transferId.length !== 6) {
+                alert("Transfer ID သည် အတိအကျ ၆ လုံးဖြစ်ရပါမည်");
+                return;
+            }
+            if (!/^\d+$/.test(transferId)) {
+                alert("Transfer ID သည် ဂဏန်း ၆ လုံးသာဖြစ်ရပါမည်");
+                return;
+            }
+            
+            const orderID = "#SL-" + Math.floor(1000 + Math.random() * 9000);
+            const planVal = String($('#plan').val());
+            const planText = $('#plan option:selected').text();
+            const orderType = currentOrderType;
+            const couponRaw = normalizeCouponCode($('#couponInput').val());
+            if (couponRaw && couponRaw !== appliedCouponCode) return alert("Coupon သုံးမယ်ဆိုရင် Apply ကိုအရင်နှိပ်ပါ");
+            const couponStatus = appliedCouponCode ? getCouponStatus(appliedCouponCode) : null;
+            if (appliedCouponCode && (!couponStatus || !couponStatus.valid)) {
+                clearAppliedCoupon('Coupon invalid — apply again', 'bad');
+                return alert("Coupon အသုံးပြုခွင့်မရှိတော့ပါ");
+            }
+            const couponCode = couponStatus?.valid ? couponStatus.code : '';
+            const amount = getFinalAmount();
+            
+            const enrollPaymentMethod = $('#enrollPaymentMethod').val();
+            const payment = PAYMENT_METHODS[enrollPaymentMethod] || PAYMENT_METHODS.kpay;
+
+            $('#res-name').text(name); 
+            $('#res-plan').text(planText); 
+            $('#res-type').text(orderType === 'manga' ? '📖 Manga' : '📚 Manhwa');
+            $('#res-payment').text(payment.label);
+            $('#display-order-id').text(orderID);
+            $('#overlay').fadeIn().css('display', 'flex');
+            $('#loading-ui').show();
+            $('#success-ui').hide();
+
+            try {
+                let orders = getStoredOrders();
+                orders.push({ 
+                    id: orderID, 
+                    name, 
+                    password: pass, 
+                    transferId: transferId,
+                    couponCode: couponCode || null, 
+                    plan: planVal, 
+                    planText, 
+                    durationDays: getPlanDaysByValue(planVal), 
+                    orderType: orderType,
+                    paymentMethod: payment.label, 
+                    basePrice: amount.basePrice, 
+                    discountAmount: amount.discountAmount, 
+                    payableAmount: amount.finalPrice, 
+                    createdAt: Date.now(), 
+                    active: false, 
+                    status: "pending", 
+                    expiry: null 
+                });
+                saveStoredOrders(orders);
+
+                const fd = new FormData();
+                fd.append('chat_id', CHAT_ID);
+                fd.append('photo', file);
+                fd.append('caption', `📘 NEW ENROLLMENT\n\n🆔 ID: ${orderID}\n📚 Type: ${orderType.toUpperCase()}\n👤 Name: ${name}\n🔒 Pass: ${pass}\n🔢 Transfer ID: ${transferId}\n📝 Plan: ${planText}\n💳 Payment: ${payment.label} (${payment.number})\n🎫 Coupon: ${couponCode || 'None'}\n💵 Base: ${amount.basePrice} Ks\n💸 Discount: ${amount.discountAmount} Ks\n🪙 Payable: ${amount.finalPrice} Ks`);
+                const telegramPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, { method: 'POST', body: fd });
+
+                const sheetBody = { action: 'newOrder', orderID, orderType, name, transferId, plan: planVal, planText, paymentMethod: payment.label, paymentNumber: payment.number, coupon: couponCode || 'None', baseAmount: amount.basePrice, discountAmount: amount.discountAmount, payableAmount: amount.finalPrice };
+                const sheetPromise = fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(sheetBody) });
+
+                await Promise.all([telegramPromise, sheetPromise]);
+                if (couponCode) redeemCoupon(couponCode);
+                displayStats();
+
+                $('#loading-ui').hide(); 
+                $('#success-ui').show();
+            } catch (e) { 
+                alert("Error — please try again."); 
+                $('#overlay').hide(); 
+            }
+        }
+    </script>
+</body>
+
+</html>
