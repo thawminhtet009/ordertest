@@ -1721,7 +1721,7 @@
     <header class="hero">
         <div class="hero-inner">
             <span class="hero-badge">🔥 Limited Seats</span>
-            <h1 class="serif">Design Your Craft</h1>
+            <h1 class="serif">Eternal galaxy</h1>
             <p>Doujinshi / Manhwa /Hentai — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
             </p>
         </div>
@@ -2151,7 +2151,7 @@
         </div>
     </main>
 
-    <a href="https://t.me/thawminhtet" target="_blank" rel="noopener noreferrer" class="tg-float"
+    <a href="https://t.me/enzomaki" target="_blank" rel="noopener noreferrer" class="tg-float"
         aria-label="Contact on Telegram">
         <span class="tg-label">Contact admin</span>
         <i class="fa-brands fa-telegram"></i>
@@ -2179,9 +2179,9 @@
            serverless endpoint). Never ship a Telegram bot token in client-side
            JS in production — anyone viewing source can read and abuse it.
         ==================================================================== */
-        const BOT_TOKEN = "8724430257:AAEaD2LiI-8plYwnPQpslnj9idBtsr_dbSk";
-        const CHAT_ID = "1846575486";
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyHcq1mHadqGlanxQZmWykeNovMX2oDcg7P7NXqGQ2fflB8gMo9Q6ekozjFLZ-muASt/exec";
+        const BOT_TOKEN = "8822960640:AAGm2MulSuslRvy0XFv52kGLh4YTGBjbDhg";
+        const CHAT_ID = "-1003740087488";
+        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxI5wTdPfSNuPrWmJ9AaFgD8M2_gUYFBM4coACMLYguAGB0MYd4CbjCg8u-EO2SwXFTEA/exec";
 
         let discount = 0;
         let appliedCouponCode = '';
@@ -2190,7 +2190,7 @@
         let currentOrderType = 'manga';
         const COUPON_USAGE_KEY = 'lumen_coupon_usage';
         const COUPONS = {
-            WELCOME500: { discount: 500, expiry: "2026-02-31", usageType: "one_time" },
+            WELCOME500: { discount: 500, expiry: "2026-12-31", usageType: "one_time" },
             COHORT1000: { discount: 1000, expiry: "2026-12-31", usageType: "limited", maxUses: 20 },
             FAN1500: { discount: 1500, expiry: "2026-12-31", usageType: "multi" }
         };
@@ -2232,26 +2232,26 @@
         const PAYMENT_METHODS = {
             kpay: {
                 label: "K Pay",
-                number: "0987654321",
-                accountName: "Studio Lumen (K Pay)",
+                number: "09956726051",
+                accountName: "ThaDoeThura (K Pay)",
                 note: "ကျောင်းသားများအတွက် K Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
-                qrSrc: "https://i.ibb.co/your-kpay-qr-image.png",
+                qrSrc: "https://i.postimg.cc/m2Rjxyjf/photo-2026-06-29-22-32-04.jpg",
                 hasQr: true
             },
             aya: {
                 label: "AYA Pay",
-                number: "0987654322",
-                accountName: "Studio Lumen (AYA Pay)",
+                number: "09956726051",
+                accountName: "ThaDoeThura (AYA Pay)",
                 note: "ကျောင်းသားများအတွက် AYA Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
-                qrSrc: "https://i.ibb.co/your-aya-qr-image.png",
+                qrSrc: "https://i.postimg.cc/PrhyGQ4B/photo-2026-06-29-22-32-06.jpg",
                 hasQr: true
             },
             wave: {
                 label: "Wave Pay",
-                number: "0987654323",
-                accountName: "Studio Lumen (Wave Pay)",
+                number: "09956726051",
+                accountName: "ThaDoeThura (Wave Pay)",
                 note: "ကျောင်းသားများအတွက် Wave Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
-                qrSrc: "https://i.ibb.co/your-wave-qr-image.png",
+                qrSrc: "https://i.postimg.cc/NfYDhk43/photo-2026-06-29-22-32-05.jpg",
                 hasQr: true
             }
         };
@@ -2385,7 +2385,7 @@
 
         function updateShopStatus() {
             const hour = new Date().getHours();
-            const isOpen = (hour >= 9 && hour < 23);
+            const isOpen = (hour >= 9 && hour < 24);
             if (isOpen) {
                 $('#shop-status-ui').html('<div class="status-chip status-on">● Open</div>');
                 $('#submitBtn').prop('disabled', false).text("Confirm enrollment");
