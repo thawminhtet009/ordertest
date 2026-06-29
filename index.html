@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Studio Lumen — Course Access</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>VIP Member Buy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Myanmar:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
@@ -27,6 +29,34 @@
             --radius: 8px;
             --manga-color: #e50914;
             --manhwa-color: #f7971e;
+            --hentai-color: #ff0096;
+            /* ⭐ Hentai အတွက် အရောင် */
+        }
+
+        /* ⭐ Hentai Button Active Style */
+        .order-type-btn.active-hentai {
+            border-color: var(--hentai-color);
+            background: rgba(255, 0, 150, 0.12);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(255, 0, 150, 0.1);
+        }
+
+        /* ⭐ Hentai Button Active Style */
+        .order-type-btn.active-hentai {
+            border-color: var(--hentai-color);
+            background: rgba(255, 0, 150, 0.12);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(255, 0, 150, 0.1);
+        }
+
+        /* ⭐ Hentai Membership Card */
+        .membership-card.type-hentai {
+            border-left: 3px solid var(--hentai-color);
+        }
+
+        .mc-plan .type-tag.hentai {
+            background: rgba(255, 0, 150, 0.15);
+            color: var(--hentai-color);
         }
 
         * {
@@ -63,9 +93,11 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--red);
             border-radius: 3px;
@@ -291,8 +323,17 @@
         }
 
         @keyframes pulse-ring {
-            0%, 100% { opacity: 0.4; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.03); }
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.03);
+            }
         }
 
         .vip-story-item .vip-emoji {
@@ -300,7 +341,7 @@
             z-index: 2;
             font-size: 28px;
             margin-bottom: 2px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .vip-story-item .vip-label {
@@ -310,8 +351,8 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: rgba(255,255,255,0.9);
-            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
         }
 
         .vip-story-item .vip-value {
@@ -319,8 +360,8 @@
             z-index: 2;
             font-size: 9px;
             font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+            color: rgba(255, 255, 255, 0.75);
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
             text-align: center;
             line-height: 1.3;
         }
@@ -344,13 +385,13 @@
             position: absolute;
             z-index: 2;
             font-size: 32px;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0;
             transition: opacity 0.3s ease;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         .vip-story-item:hover .vip-play-icon {
@@ -370,10 +411,21 @@
             opacity: 1;
         }
 
-        .vip-story-item:nth-child(1) { border-color: rgba(255, 215, 0, 0.3); }
-        .vip-story-item:nth-child(2) { border-color: rgba(70, 211, 105, 0.3); }
-        .vip-story-item:nth-child(3) { border-color: rgba(36, 161, 222, 0.3); }
-        .vip-story-item:nth-child(4) { border-color: rgba(255, 215, 0, 0.3); }
+        .vip-story-item:nth-child(1) {
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .vip-story-item:nth-child(2) {
+            border-color: rgba(70, 211, 105, 0.3);
+        }
+
+        .vip-story-item:nth-child(3) {
+            border-color: rgba(36, 161, 222, 0.3);
+        }
+
+        .vip-story-item:nth-child(4) {
+            border-color: rgba(255, 215, 0, 0.3);
+        }
 
         /* STAT GRID */
         .stat-grid {
@@ -446,10 +498,12 @@
             color: var(--text-muted);
         }
 
-        /* ORDER TYPE SELECTOR BUTTONS */
+        /* ORDER TYPE SELECTOR - Mobile Friendly */
         .order-type-selector {
             display: flex;
-            gap: 10px;
+            flex-wrap: wrap;
+            /* ⭐ အောက်ကိုဆင်းခွင့်ပြုတယ် */
+            gap: 8px;
             margin-bottom: 16px;
         }
 
@@ -500,7 +554,7 @@
             font-size: 8px;
             padding: 2px 8px;
             border-radius: 999px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* TICKET CARDS */
@@ -849,7 +903,7 @@
 
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
         .btn-login.manga-login {
@@ -916,7 +970,7 @@
             background: #fff;
             border-radius: 8px;
             padding: 8px;
-            border: 2px solid rgba(255,255,255,0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .pay-num {
@@ -1579,32 +1633,41 @@
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
             }
+
             .ticket-grid .ticket {
                 min-height: 120px;
                 padding: 12px 8px;
             }
+
             .ticket-grid .ticket .ticket-amount {
                 font-size: 1.1rem;
             }
+
             .vip-story-carousel {
                 gap: 6px;
             }
+
             .vip-story-item {
                 min-height: 120px;
                 padding: 8px 6px;
             }
+
             .vip-story-item .vip-emoji {
                 font-size: 22px;
             }
+
             .vip-story-item .vip-value {
                 font-size: 8px;
             }
+
             .order-type-selector {
                 flex-direction: column;
             }
+
             .receipt-actions {
                 flex-direction: column;
             }
+
             .btn-login {
                 font-size: 11px;
                 padding: 12px 16px;
@@ -1621,7 +1684,8 @@
     <div id="overlay">
         <div id="loading-ui">
             <div class="spinner"></div>
-            <p style="font-weight:800;color:var(--text-muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">
+            <p
+                style="font-weight:800;color:var(--text-muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">
                 Sending enrollment…</p>
         </div>
         <!-- ⭐ SUCCESS UI - Login Buttons ဖယ်ရှားပြီး Done ပဲကျန် -->
@@ -1636,7 +1700,8 @@
                 <div class="receipt-row"><span>Plan</span><span id="res-plan">---</span></div>
                 <div class="receipt-row"><span>Type</span><span id="res-type">---</span></div>
                 <div class="receipt-row"><span>Payment</span><span id="res-payment">---</span></div>
-                <div class="receipt-row"><span>Status</span><span style="color:var(--gold);font-weight:800;">Pending review</span></div>
+                <div class="receipt-row"><span>Status</span><span style="color:var(--gold);font-weight:800;">Pending
+                        review</span></div>
             </div>
             <div class="receipt-actions">
                 <button type="button" class="receipt-done" onclick="location.reload()">Done</button>
@@ -1646,7 +1711,7 @@
 
     <nav class="topbar" id="topbar">
         <div class="topbar-inner">
-            <div class="brand">Studio <span class="dot">Lumen</span></div>
+            <div class="brand">Member <span class="dot">Buy</span></div>
             <div class="nav-actions">
                 <div id="shop-status-ui"></div>
             </div>
@@ -1657,76 +1722,78 @@
         <div class="hero-inner">
             <span class="hero-badge">🔥 Limited Seats</span>
             <h1 class="serif">Design Your Craft</h1>
-            <p>Manga / Manhwa — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
+            <p>Doujinshi / Manhwa /Hentai — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
             </p>
         </div>
     </header>
 
     <main>
         <div id="page-overview">
-            
+
             <!-- VIP Features -->
-            <section class="scroll-target" aria-labelledby="vip-heading" style="background:var(--bg-primary);padding:8px 0 12px;">
+            <section class="scroll-target" aria-labelledby="vip-heading"
+                style="background:var(--bg-primary);padding:8px 0 12px;">
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:0 12px 10px;">
                     <div style="display:flex;align-items:center;gap:8px;">
                         <span style="font-size:18px;">⭐</span>
-                        <h3 style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--text-primary);margin:0;">VIP မှာဘာတွေပါလဲ</h3>
+                        <h3
+                            style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--text-primary);margin:0;">
+                            VIP မှာဘာတွေပါလဲ</h3>
                     </div>
                 </div>
-                
-                <div style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;">
+
+                <div
+                    style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;">
                     <style>
-                        .fb-story-carousel::-webkit-scrollbar { display:none; }
+                        .fb-story-carousel::-webkit-scrollbar {
+                            display: none;
+                        }
                     </style>
-                    
-                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.4);cursor:pointer;transition:all 0.2s;">
-                        <img src="https://www.dropbox.com/scl/fi/158e1xv6zhdixkje4l0gm/Yennefer-By-Octokuro.gif?rlkey=ph3yt0mu6cyxqva56w3ac9jlr&st=7ai9q1kc&dl=1" 
-                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+
+
+                    <div
+                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(229,9,20,0.6);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://i.postimg.cc/nzwSkj7Q/photo-2026-06-29-21-48-00.jpg"
+                            style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div
+                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
+                        </div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Cosplayer</span>
+                            <span
+                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Hentai</span>
                         </div>
                     </div>
-                    
-                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(229,9,20,0.6);cursor:pointer;transition:all 0.2s;">
-                        <img src="https://imgs.search.brave.com/YdacwXsHRNRAAaWbB_wnUbKmA2i4kIcSAt08TGKSl_M/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Y291Z2FyaWxsby5j/b20vd3AtY29udGVu/dC91cGxvYWRzLzIw/MjMvMTIvZ2lmLWhl/bnRhaS1iYWlzZS5n/aWY.gif" 
-                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
+
+                    <div
+                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.3);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://i.postimg.cc/j5k3XwNf/photo-2026-06-29-21-47-59.jpg"
+                            style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div
+                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
+                        </div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">3D Hentai</span>
+                            <span
+                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Doujinshi</span>
                         </div>
                     </div>
-                    
-                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.3);cursor:pointer;transition:all 0.2s;">
-                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2022/06/27/27592517.webp?width=620" 
-                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
-                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Hentai Mm</span>
+
+                    <div
+                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.2s;">
+                        <img src="https://i.postimg.cc/mD6pwzMH/photo-2026-06-29-21-47-56.jpg"
+                            style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+                        <div
+                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
                         </div>
-                    </div>
-                    
-                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.4);cursor:pointer;transition:all 0.2s;">
-                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2017/01/18/17236238.webp?width=620" 
-                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Comic 18</span>
-                        </div>
-                    </div>
-                    
-                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.2s;">
-                        <img src="https://imagex1.sx.cdn.live/images/pinporn/2018/02/27/19171869.webp?width=620" 
-                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;"></div>
-                        <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">AV Video</span>
+                            <span
+                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Manhwa</span>
                         </div>
                     </div>
                 </div>
-                
-                <p style="font-size:10px;color:var(--text-muted);text-align:center;margin:8px 16px 0;line-height:1.6;padding:0 4px;">
-                    အထပ်ပါဖော်ပြပါ ဟာများပါဝင်ပြီးကြော်ငြာများမပါပဲတိုက်ရိုက်ကြည့်ရှု/Downloadပြုလုပ်နိုင်ပါတယ်
+
+                <p
+                    style="font-size:10px;color:var(--text-muted);text-align:center;margin:8px 16px 0;line-height:1.6;padding:0 4px;">
+                    အထပ်ပါဖော်ပြပါ ဟာများပါဝင်ပြီးကြော်ငြာများမပါပဲတိုက်ရိုက်ကြည့်ရှု နိုင်ပါတယ်
                 </p>
             </section>
 
@@ -1770,9 +1837,9 @@
             <!-- Section 2: Plans -->
             <section id="plans-heading" class="scroll-target">
                 <h2 class="section-title"><span class="num">2</span>Choose your access</h2>
-                
                 <div class="order-type-selector">
-                    <button type="button" class="order-type-btn active-manga" id="btnManga" onclick="selectOrderType('manga')">
+                    <button type="button" class="order-type-btn active-manga" id="btnManga"
+                        onclick="selectOrderType('manga')">
                         <i class="fa-solid fa-book-open"></i> Manga
                         <span class="badge-type">COMICS</span>
                     </button>
@@ -1780,9 +1847,16 @@
                         <i class="fa-solid fa-book"></i> Manhwa
                         <span class="badge-type">WEBTOONS</span>
                     </button>
+                    <!-- ⭐ HENTAI BUTTON အသစ်ထည့်ရန် -->
+                    <button type="button" class="order-type-btn" id="btnHentai" onclick="selectOrderType('hentai')"
+                        style="border-color: rgba(255, 0, 150, 0.3);">
+                        <i class="fa-solid fa-film"></i> Hentai
+                        <span class="badge-type">+18</span>
+                    </button>
                 </div>
 
                 <div class="ticket-grid" id="planGrid">
+                    <!-- Manga Plans -->
                     <div class="ticket manga-plan" data-plan="4000" data-type="manga" role="button" tabindex="0">
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
                         <div class="ticket-label">Manga Basic</div>
@@ -1815,14 +1889,17 @@
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
 
-                    <div class="ticket manhwa-plan" data-plan="5000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                    <!-- Manhwa Plans -->
+                    <div class="ticket manhwa-plan" data-plan="5000" data-type="manhwa" role="button" tabindex="0"
+                        style="display:none;">
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
                         <div class="ticket-label">Manhwa Basic</div>
                         <div class="ticket-amount">5,000<span>Ks</span></div>
                         <div class="ticket-meta">၁ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                    <div class="ticket manhwa-plan" data-plan="12000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                    <div class="ticket manhwa-plan" data-plan="12000" data-type="manhwa" role="button" tabindex="0"
+                        style="display:none;">
                         <span class="ticket-badge">Most picked</span>
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
                         <div class="ticket-label">Manhwa Pro</div>
@@ -1830,7 +1907,8 @@
                         <div class="ticket-meta">၃ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                    <div class="ticket manhwa-plan" data-plan="22000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                    <div class="ticket manhwa-plan" data-plan="22000" data-type="manhwa" role="button" tabindex="0"
+                        style="display:none;">
                         <span class="ticket-badge gold">Best value</span>
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
                         <div class="ticket-label">Manhwa Premium</div>
@@ -1838,7 +1916,8 @@
                         <div class="ticket-meta">၆ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                    <div class="ticket manhwa-plan" data-plan="30000" data-type="manhwa" role="button" tabindex="0" style="display:none;">
+                    <div class="ticket manhwa-plan" data-plan="30000" data-type="manhwa" role="button" tabindex="0"
+                        style="display:none;">
                         <span class="ticket-badge green">Lifetime</span>
                         <div class="ticket-stub"><i class="fa-solid fa-crown crown"></i></div>
                         <div class="ticket-label">Manhwa Lifetime</div>
@@ -1846,173 +1925,250 @@
                         <div class="ticket-meta">တစ်သက်တာ</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                </div>
-            </section>
 
-            <!-- Section 3: FAQ -->
-            <section id="faq-heading" class="scroll-target">
-                <h2 class="section-title"><span class="num">3</span>Questions</h2>
-                <div class="faq-item active">
-                    <div class="faq-q">ဝယ်ပြီးရင် ဘယ်လောက်ကြာ access ဖွင့်ပေးမလဲ? <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-a">ပုံမှန်အားဖြင့် ၁၅–၃၀ မိနစ်အတွင်း Admin မှ slip စစ်ပြီး access ဖွင့်ပေးပါသည်။</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">Manga နဲ့ Manhwa ဘာကွာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-a">Manga က ဂျပန်ကာတွန်း၊ Manhwa က ကိုရီးယားဝဘ်တွန်း ဖြစ်ပါတယ်။ နှစ်ခုလုံးကို သီးခြားစီဝယ်ယူနိုင်ပါတယ်။</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">Lifetime plan ဆိုတာဘာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
-                    <div class="faq-a">Lifetime plan ဆိုတာ တစ်ခါပေးရုံနဲ့ တစ်သက်တာ access ရမယ့် plan ဖြစ်ပါတယ်။</div>
-                </div>
-            </section>
-
-            <!-- Section 4: Pay -->
-            <section id="pay-heading" class="scroll-target">
-                <h2 class="section-title"><span class="num">4</span>Pay</h2>
-                <div class="pay-card">
-                    <div class="field" style="text-align:left;">
-                        <label>Select Payment Method</label>
-                        <select id="paymentMethod" onchange="updatePaymentInfo()">
-                            <option value="kpay">K Pay</option>
-                            <option value="aya">AYA Pay</option>
-                            <option value="wave">Wave Pay</option>
-                        </select>
+                    <!-- ⭐ HENTAI PLANS အသစ်ထည့်ရန် -->
+                    <div class="ticket hentai-plan" data-plan="6000" data-type="hentai" role="button" tabindex="0"
+                        style="display:none; border-color: rgba(255, 0, 150, 0.3);">
+                        <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
+                                class="fa-solid fa-film" style="color: #ff0096;"></i></div>
+                        <div class="ticket-label">Hentai Basic</div>
+                        <div class="ticket-amount">6,000<span>Ks</span></div>
+                        <div class="ticket-meta">၁ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                    <div class="pay-detail" id="paymentDetail">
-                        <span class="pay-label" id="paymentLabel">K Pay Transfer</span>
-                        <div class="pay-qr-wrap"><img id="paymentQr" class="pay-qr" src="" alt="Payment QR Code"></div>
-                        <span class="pay-num serif" id="paymentNumber">09xxxxxxxxx</span>
-                        <p class="pay-name" id="paymentName">Account name</p>
-                        <p class="pay-note" id="paymentNote">Scan the QR or transfer to the number above.</p>
-                        <button type="button" class="copy-btn" onclick="copySelectedPayment()">Copy number</button>
+                    <div class="ticket hentai-plan" data-plan="15000" data-type="hentai" role="button" tabindex="0"
+                        style="display:none; border-color: rgba(255, 0, 150, 0.3);">
+                        <span class="ticket-badge" style="background: #ff0096;">Most picked</span>
+                        <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
+                                class="fa-solid fa-film" style="color: #ff0096;"></i></div>
+                        <div class="ticket-label">Hentai Pro</div>
+                        <div class="ticket-amount">15,000<span>Ks</span></div>
+                        <div class="ticket-meta">၃ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket hentai-plan" data-plan="28000" data-type="hentai" role="button" tabindex="0"
+                        style="display:none; border-color: rgba(255, 0, 150, 0.3);">
+                        <span class="ticket-badge gold">Best value</span>
+                        <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
+                                class="fa-solid fa-film" style="color: #ff0096;"></i></div>
+                        <div class="ticket-label">Hentai Premium</div>
+                        <div class="ticket-amount">28,000<span>Ks</span></div>
+                        <div class="ticket-meta">၆ လ access</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="ticket hentai-plan" data-plan="40000" data-type="hentai" role="button" tabindex="0"
+                        style="display:none; border-color: rgba(255, 0, 150, 0.3);">
+                        <span class="ticket-badge" style="background: #ff0096;">Lifetime</span>
+                        <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
+                                class="fa-solid fa-crown crown" style="color: #ff0096;"></i></div>
+                        <div class="ticket-label">Hentai Lifetime</div>
+                        <div class="ticket-amount">40,000<span>Ks</span></div>
+                        <div class="ticket-meta">တစ်သက်တာ</div>
+                        <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Section 5: Enroll -->
-            <section id="order-heading" class="scroll-target">
-                <h2 class="section-title"><span class="num">5</span>Enroll</h2>
-                <div class="card" id="formCard">
-                    <form id="orderForm">
-                        <div class="field">
-                            <label>Order Type</label>
-                            <div style="display:flex;gap:10px;">
-                                <span id="displayOrderType" style="background:var(--bg-card);padding:8px 16px;border-radius:6px;border:1px solid var(--border);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;">
-                                    <i class="fa-solid fa-book-open" id="orderTypeIcon"></i>
-                                    <span id="orderTypeText">Manga</span>
-                                </span>
-                            </div>
+                <!-- Section 3: FAQ -->
+                <section id="faq-heading" class="scroll-target">
+                    <h2 class="section-title"><span class="num">3</span>Questions</h2>
+                    <div class="faq-item active">
+                        <div class="faq-q">ဝယ်ပြီးရင် ဘယ်လောက်ကြာ access ဖွင့်ပေးမလဲ? <i
+                                class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-a">ပုံမှန်အားဖြင့် ၁၅–၃၀ မိနစ်အတွင်း Admin မှ slip စစ်ပြီး access ဖွင့်ပေးပါသည်။
                         </div>
-                        <div class="field"><label>Name</label><input type="text" id="name" placeholder="သင့်အမည်" autocomplete="name"></div>
-                        <div class="field">
-                            <label>Password</label>
-                            <div class="pass-wrap">
-                                <input type="password" id="pass" placeholder="အနည်းဆုံး ၆ လုံး" autocomplete="new-password">
-                                <i class="fa-solid fa-eye-slash toggle-pass" id="togglePass" role="button" tabindex="0" aria-label="Show password"></i>
-                            </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Manga နဲ့ Manhwa ဘာကွာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-a">ဇာတ်လမ်းရှည်ရှည်နဲ့ Series အပုဒ်လိုက် ဖတ်ချင်တယ်ဆိုရင်တော့ Manhwa ကို
+                            ရွေးချယ်ဖို အကြံပြုချင်ပါတယ်ဗျ။
+
+                            အကယ်၍ ကိုယ်ကြိုက်တဲ့ Anime Character တွေ ပါဝင်တာမျိုးကိုမှ ဖတ်ချင်တယ်ဆိုရင်တော့ Doujinshi က
+                            အကောင်းဆုံး ဖြစ်မှာပါဗျ</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-q">Lifetime plan ဆိုတာဘာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="faq-a">Lifetime plan ဆိုတာ တစ်ခါပေးရုံနဲ့ တစ်သက်တာ access ရမယ့် plan ဖြစ်ပါတယ်။
                         </div>
-                        <!-- ⭐ Transfer ID - maxlength 6 ထည့်ထားတယ် -->
-                        <div class="field">
-                            <label>Transfer ID (နောက်ဆုံး ၆ လုံး)</label>
-                            <input type="text" id="transferId" placeholder="ဥပမာ - 123456" maxlength="6" autocomplete="off">
-                            <span class="field-hint">ငွေလွှဲထားတဲ့ slip ထဲက နောက်ဆုံး အတိအကျ ၆ လုံးကို ထည့်ပါ</span>
-                        </div>
-                        <div class="field">
-                            <label>Plan</label>
-                            <select id="plan" onchange="updatePrice()">
-                                <option value="4000" data-days="30" data-type="manga">Manga Basic — 4,000 Ks</option>
-                                <option value="10000" data-days="90" data-type="manga" selected>Manga Pro — 10,000 Ks</option>
-                                <option value="18000" data-days="180" data-type="manga">Manga Premium — 18,000 Ks</option>
-                                <option value="25000" data-days="3650" data-type="manga">Manga Lifetime — 25,000 Ks</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <label>Payment Method</label>
-                            <select id="enrollPaymentMethod">
+                    </div>
+                </section>
+
+                <!-- Section 4: Pay -->
+                <section id="pay-heading" class="scroll-target">
+                    <h2 class="section-title"><span class="num">4</span>Pay</h2>
+                    <div class="pay-card">
+                        <div class="field" style="text-align:left;">
+                            <label>Select Payment Method</label>
+                            <select id="paymentMethod" onchange="updatePaymentInfo()">
                                 <option value="kpay">K Pay</option>
                                 <option value="aya">AYA Pay</option>
                                 <option value="wave">Wave Pay</option>
                             </select>
-                            <span class="field-hint">ငွေလွှဲမည့် ဘဏ်ကို ရွေးပါ</span>
                         </div>
-                        <div class="field">
-                            <label>Coupon</label>
-                            <div class="coupon-row">
-                                <input type="text" id="couponInput" placeholder="ကုဒ် ရှိရင် ထည့်ပါ">
-                                <button type="button" class="btn-apply" onclick="applyCoupon()">Apply</button>
+                        <div class="pay-detail" id="paymentDetail">
+                            <span class="pay-label" id="paymentLabel">K Pay Transfer</span>
+                            <div class="pay-qr-wrap"><img id="paymentQr" class="pay-qr" src="" alt="Payment QR Code">
                             </div>
-                            <div id="coupon-expiry" class="coupon-note">No coupon applied</div>
+                            <span class="pay-num serif" id="paymentNumber">09xxxxxxxxx</span>
+                            <p class="pay-name" id="paymentName">Account name</p>
+                            <p class="pay-note" id="paymentNote">Scan the QR or transfer to the number above.</p>
+                            <button type="button" class="copy-btn" onclick="copySelectedPayment()">Copy number</button>
                         </div>
-                        <div class="field"><label>Payment slip</label><input type="file" id="file" accept="image/*" style="padding-top:12px;"></div>
-                        <div id="price-display" class="price-total">Total: 10,000 Ks</div>
-                        <button type="button" class="btn-submit" id="submitBtn" onclick="sendOrder()">Confirm enrollment</button>
-                    </form>
-                </div>
-            </section>
-
-            <!-- Section 6: Profile -->
-            <section id="profile-heading-wrap" class="scroll-target">
-                <div class="profile-header">
-                    <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
-                    <div>
-                        <h2 class="serif" id="profile-heading">My Profile</h2>
-                        <p>Your enrollments and access expiry, at a glance</p>
                     </div>
-                </div>
-                
-                <!-- ⭐ PROFILE - Quick Links (Manga & Manhwa) -->
-                <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-                    <a href="https://your-manga-link.com" target="_blank" class="btn-login manga-login" style="flex:1;text-decoration:none;justify-content:center;">
-                        <i class="fa-solid fa-book-open"></i> Go to Manga
-                    </a>
-                    <a href="https://your-manhwa-link.com" target="_blank" class="btn-login manhwa-login" style="flex:1;text-decoration:none;justify-content:center;">
-                        <i class="fa-solid fa-book"></i> Go to Manhwa
-                    </a>
-                </div>
+                </section>
 
-                <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
-                    <button type="button" class="btn-refresh" onclick="manualSync()" style="flex:1;">
-                        <i class="fa-solid fa-rotate"></i> Refresh
-                    </button>
-                    <button type="button" class="btn-refresh" style="background:transparent;color:var(--text-muted);border:1px solid var(--border);" onclick="openTrashBox()">
-                        <i class="fa-solid fa-trash"></i> Trash
-                    </button>
-                </div>
-
-                <div class="card" style="margin-bottom:14px;">
-                    <div class="hist-head" style="margin-bottom:0;">
-                        <div class="hist-title"><i class="fa-solid fa-graduation-cap" style="margin-right:6px;opacity:0.85;"></i>My Enrollments</div>
+                <!-- Section 5: Enroll -->
+                <section id="order-heading" class="scroll-target">
+                    <h2 class="section-title"><span class="num">5</span>Enroll</h2>
+                    <div class="card" id="formCard">
+                        <form id="orderForm">
+                            <div class="field">
+                                <label>Order Type</label>
+                                <div style="display:flex;gap:10px;">
+                                    <span id="displayOrderType"
+                                        style="background:var(--bg-card);padding:8px 16px;border-radius:6px;border:1px solid var(--border);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;">
+                                        <i class="fa-solid fa-book-open" id="orderTypeIcon"></i>
+                                        <span id="orderTypeText">Manga</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field"><label>Name</label><input type="text" id="name" placeholder="သင့်အမည်"
+                                    autocomplete="name"></div>
+                            <div class="field">
+                                <label>Password</label>
+                                <div class="pass-wrap">
+                                    <input type="password" id="pass" placeholder="အနည်းဆုံး ၆ လုံး"
+                                        autocomplete="new-password">
+                                    <i class="fa-solid fa-eye-slash toggle-pass" id="togglePass" role="button"
+                                        tabindex="0" aria-label="Show password"></i>
+                                </div>
+                            </div>
+                            <!-- ⭐ Transfer ID - maxlength 6 ထည့်ထားတယ် -->
+                            <div class="field">
+                                <label>Transfer ID (နောက်ဆုံး ၆ လုံး)</label>
+                                <input type="text" id="transferId" placeholder="ဥပမာ - 123456" maxlength="6"
+                                    autocomplete="off">
+                                <span class="field-hint">ငွေလွှဲထားတဲ့ slip ထဲက နောက်ဆုံး အတိအကျ ၆ လုံးကို ထည့်ပါ</span>
+                            </div>
+                            <div class="field">
+                                <label>Plan</label>
+                                <select id="plan" onchange="updatePrice()">
+                                    <option value="4000" data-days="30" data-type="manga">Manga Basic — 4,000 Ks
+                                    </option>
+                                    <option value="10000" data-days="90" data-type="manga" selected>Manga Pro — 10,000
+                                        Ks
+                                    </option>
+                                    <option value="18000" data-days="180" data-type="manga">Manga Premium — 18,000 Ks
+                                    </option>
+                                    <option value="25000" data-days="3650" data-type="manga">Manga Lifetime — 25,000 Ks
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Payment Method</label>
+                                <select id="enrollPaymentMethod">
+                                    <option value="kpay">K Pay</option>
+                                    <option value="aya">AYA Pay</option>
+                                    <option value="wave">Wave Pay</option>
+                                </select>
+                                <span class="field-hint">ငွေလွှဲမည့် ဘဏ်ကို ရွေးပါ</span>
+                            </div>
+                            <div class="field">
+                                <label>Coupon</label>
+                                <div class="coupon-row">
+                                    <input type="text" id="couponInput" placeholder="ကုဒ် ရှိရင် ထည့်ပါ">
+                                    <button type="button" class="btn-apply" onclick="applyCoupon()">Apply</button>
+                                </div>
+                                <div id="coupon-expiry" class="coupon-note">No coupon applied</div>
+                            </div>
+                            <div class="field"><label>Payment slip</label><input type="file" id="file" accept="image/*"
+                                    style="padding-top:12px;"></div>
+                            <div id="price-display" class="price-total">Total: 10,000 Ks</div>
+                            <button type="button" class="btn-submit" id="submitBtn" onclick="sendOrder()">Confirm
+                                enrollment</button>
+                        </form>
                     </div>
-                </div>
-                <div id="orderList"></div>
-            </section>
+                </section>
 
-            <!-- Trash Section -->
-            <section id="trashBox" aria-live="polite">
-                <h2 class="section-title"><span class="num"><i class="fa-solid fa-trash" style="font-size:9px;"></i></span>Trash</h2>
-                <div class="card" style="margin-bottom:14px;">
-                    <div class="hist-head" style="margin-bottom:0;">
-                        <div class="hist-title">Deleted enrollments</div>
-                        <button type="button" class="btn-refresh" onclick="restoreAllOrders()">Restore all</button>
+                <!-- Section 6: Profile -->
+                <section id="profile-heading-wrap" class="scroll-target">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="fa-solid fa-user"></i></div>
+                        <div>
+                            <h2 class="serif" id="profile-heading">My Profile</h2>
+                            <p>Your enrollments and access expiry, at a glance</p>
+                        </div>
                     </div>
-                </div>
-                <div id="trashList"></div>
-            </section>
+
+                    <!-- ⭐ PROFILE - Quick Links (Manga, Manhwa, Hentai) -->
+                    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+                        <a href="https://your-manga-link.com" target="_blank" class="btn-login manga-login"
+                            style="flex:1;text-decoration:none;justify-content:center;">
+                            <i class="fa-solid fa-book-open"></i> Go to Manga
+                        </a>
+                        <a href="https://your-manhwa-link.com" target="_blank" class="btn-login manhwa-login"
+                            style="flex:1;text-decoration:none;justify-content:center;">
+                            <i class="fa-solid fa-book"></i> Go to Manhwa
+                        </a>
+                        <!-- ⭐ HENTAI BUTTON အသစ်ထည့်ရန် -->
+                        <a href="https://your-hentai-link.com" target="_blank" class="btn-login"
+                            style="flex:1;text-decoration:none;justify-content:center; background: linear-gradient(135deg, #ff0096, #ff6bb5); color: #fff;">
+                            <i class="fa-solid fa-film"></i> Go to Hentai
+                        </a>
+                    </div>
+
+                    <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
+                        <button type="button" class="btn-refresh" onclick="manualSync()" style="flex:1;">
+                            <i class="fa-solid fa-rotate"></i> Refresh
+                        </button>
+                        <button type="button" class="btn-refresh"
+                            style="background:transparent;color:var(--text-muted);border:1px solid var(--border);"
+                            onclick="openTrashBox()">
+                            <i class="fa-solid fa-trash"></i> Trash
+                        </button>
+                    </div>
+
+                    <div class="card" style="margin-bottom:14px;">
+                        <div class="hist-head" style="margin-bottom:0;">
+                            <div class="hist-title"><i class="fa-solid fa-graduation-cap"
+                                    style="margin-right:6px;opacity:0.85;"></i>My Enrollments</div>
+                        </div>
+                    </div>
+                    <div id="orderList"></div>
+                </section>
+
+                <!-- Trash Section -->
+                <section id="trashBox" aria-live="polite">
+                    <h2 class="section-title"><span class="num"><i class="fa-solid fa-trash"
+                                style="font-size:9px;"></i></span>Trash</h2>
+                    <div class="card" style="margin-bottom:14px;">
+                        <div class="hist-head" style="margin-bottom:0;">
+                            <div class="hist-title">Deleted enrollments</div>
+                            <button type="button" class="btn-refresh" onclick="restoreAllOrders()">Restore all</button>
+                        </div>
+                    </div>
+                    <div id="trashList"></div>
+                </section>
         </div>
     </main>
 
-    <a href="https://t.me/thawminhtet" target="_blank" rel="noopener noreferrer" class="tg-float" aria-label="Contact on Telegram">
+    <a href="https://t.me/thawminhtet" target="_blank" rel="noopener noreferrer" class="tg-float"
+        aria-label="Contact on Telegram">
         <span class="tg-label">Contact admin</span>
         <i class="fa-brands fa-telegram"></i>
     </a>
 
     <nav class="bottom-nav" aria-label="App navigation">
         <div class="bottom-nav-inner">
-            <button type="button" class="nav-tab active" data-target="syllabus-heading-wrap"><i class="fa-solid fa-chart-pie"></i>Overview</button>
-            <button type="button" class="nav-tab" data-target="plans-heading"><i class="fa-solid fa-th"></i>Plans</button>
-            <button type="button" class="nav-tab" data-target="pay-heading"><i class="fa-solid fa-credit-card"></i>Pay</button>
-            <button type="button" class="nav-tab" data-target="order-heading"><i class="fa-solid fa-pen-to-square"></i>Enroll</button>
-            <button type="button" class="nav-tab" data-target="profile-heading-wrap"><i class="fa-solid fa-user"></i>Profile</button>
+            <button type="button" class="nav-tab active" data-target="syllabus-heading-wrap"><i
+                    class="fa-solid fa-chart-pie"></i>Overview</button>
+            <button type="button" class="nav-tab" data-target="plans-heading"><i
+                    class="fa-solid fa-th"></i>Plans</button>
+            <button type="button" class="nav-tab" data-target="pay-heading"><i
+                    class="fa-solid fa-credit-card"></i>Pay</button>
+            <button type="button" class="nav-tab" data-target="order-heading"><i
+                    class="fa-solid fa-pen-to-square"></i>Enroll</button>
+            <button type="button" class="nav-tab" data-target="profile-heading-wrap"><i
+                    class="fa-solid fa-user"></i>Profile</button>
         </div>
     </nav>
 
@@ -2023,8 +2179,8 @@
            serverless endpoint). Never ship a Telegram bot token in client-side
            JS in production — anyone viewing source can read and abuse it.
         ==================================================================== */
-        const BOT_TOKEN = "8822960640:AAGm2MulSuslRvy0XFv52kGLh4YTGBjbDhg";
-        const CHAT_ID = "-1003740087488";
+        const BOT_TOKEN = "8724430257:AAEaD2LiI-8plYwnPQpslnj9idBtsr_dbSk";
+        const CHAT_ID = "1846575486";
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyHcq1mHadqGlanxQZmWykeNovMX2oDcg7P7NXqGQ2fflB8gMo9Q6ekozjFLZ-muASt/exec";
 
         let discount = 0;
@@ -2059,61 +2215,86 @@
                     { value: '22000', days: 180, label: 'Manhwa Premium — 22,000 Ks' },
                     { value: '30000', days: 3650, label: 'Manhwa Lifetime — 30,000 Ks' }
                 ]
+            },
+            // ⭐ HENTAI DATA အသစ်ထည့်ရန်
+            hentai: {
+                label: 'Hentai',
+                icon: 'fa-film',
+                plans: [
+                    { value: '6000', days: 30, label: 'Hentai Basic — 6,000 Ks' },
+                    { value: '15000', days: 90, label: 'Hentai Pro — 15,000 Ks' },
+                    { value: '28000', days: 180, label: 'Hentai Premium — 28,000 Ks' },
+                    { value: '40000', days: 3650, label: 'Hentai Lifetime — 40,000 Ks' }
+                ]
             }
         };
 
         const PAYMENT_METHODS = {
-            kpay: { 
-                label: "K Pay", 
-                number: "0987654321", 
-                accountName: "Studio Lumen (K Pay)", 
-                note: "ကျောင်းသားများအတွက် K Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+            kpay: {
+                label: "K Pay",
+                number: "0987654321",
+                accountName: "Studio Lumen (K Pay)",
+                note: "ကျောင်းသားများအတွက် K Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
                 qrSrc: "https://i.ibb.co/your-kpay-qr-image.png",
-                hasQr: true 
+                hasQr: true
             },
-            aya: { 
-                label: "AYA Pay", 
-                number: "0987654322", 
-                accountName: "Studio Lumen (AYA Pay)", 
-                note: "ကျောင်းသားများအတွက် AYA Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+            aya: {
+                label: "AYA Pay",
+                number: "0987654322",
+                accountName: "Studio Lumen (AYA Pay)",
+                note: "ကျောင်းသားများအတွက် AYA Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
                 qrSrc: "https://i.ibb.co/your-aya-qr-image.png",
-                hasQr: true 
+                hasQr: true
             },
-            wave: { 
-                label: "Wave Pay", 
-                number: "0987654323", 
-                accountName: "Studio Lumen (Wave Pay)", 
-                note: "ကျောင်းသားများအတွက် Wave Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။", 
+            wave: {
+                label: "Wave Pay",
+                number: "0987654323",
+                accountName: "Studio Lumen (Wave Pay)",
+                note: "ကျောင်းသားများအတွက် Wave Pay ဖြင့် ငွေလွှဲနိုင်ပါသည်။",
                 qrSrc: "https://i.ibb.co/your-wave-qr-image.png",
-                hasQr: true 
+                hasQr: true
             }
         };
 
         // SELECT ORDER TYPE
         function selectOrderType(type) {
             currentOrderType = type;
-            
-            $('#btnManga').removeClass('active-manga active-manhwa');
-            $('#btnManhwa').removeClass('active-manga active-manhwa');
+
+            $('#btnManga').removeClass('active-manga active-manhwa active-hentai');
+            $('#btnManhwa').removeClass('active-manga active-manhwa active-hentai');
+            $('#btnHentai').removeClass('active-manga active-manhwa active-hentai');
+
             if (type === 'manga') {
                 $('#btnManga').addClass('active-manga');
-            } else {
+            } else if (type === 'manhwa') {
                 $('#btnManhwa').addClass('active-manhwa');
+            } else if (type === 'hentai') {
+                $('#btnHentai').addClass('active-hentai');
             }
-            
+
             if (type === 'manga') {
                 $('.manga-plan').show();
                 $('.manhwa-plan').hide();
-            } else {
+                $('.hentai-plan').hide();
+            } else if (type === 'manhwa') {
                 $('.manga-plan').hide();
                 $('.manhwa-plan').show();
+                $('.hentai-plan').hide();
+            } else if (type === 'hentai') {
+                $('.manga-plan').hide();
+                $('.manhwa-plan').hide();
+                $('.hentai-plan').show();
             }
-            
+
             const data = PLAN_DATA[type];
-            $('#orderTypeIcon').removeClass('fa-book-open fa-book').addClass(data.icon);
+            $('#orderTypeIcon').removeClass('fa-book-open fa-book fa-film').addClass(data.icon);
             $('#orderTypeText').text(data.label);
-            $('#displayOrderType').css('border-color', type === 'manga' ? 'var(--manga-color)' : 'var(--manhwa-color)');
-            
+
+            let borderColor = 'var(--manga-color)';
+            if (type === 'manhwa') borderColor = 'var(--manhwa-color)';
+            else if (type === 'hentai') borderColor = 'var(--hentai-color)';
+            $('#displayOrderType').css('border-color', borderColor);
+
             updatePlanDropdown(type);
             $('.ticket-grid .ticket').removeClass('selected');
             updatePrice();
@@ -2132,23 +2313,23 @@
 
         $(document).ready(function () {
             selectOrderType('manga');
-            
+
             displayOrderHistory();
             displayTrashHistory();
             displayStats();
             updateShopStatus();
             updatePrice();
             updatePaymentInfo();
-            
+
             if (countdownInterval) clearInterval(countdownInterval);
-            countdownInterval = setInterval(function() {
+            countdownInterval = setInterval(function () {
                 updateAllCountdowns();
             }, 1000);
-            
+
             setInterval(syncHistoryWithServer, 10000);
             setInterval(displayStats, 5000);
 
-            $(window).on('scroll', function() {
+            $(window).on('scroll', function () {
                 if ($(window).scrollTop() > 50) {
                     $('#topbar').addClass('scrolled');
                 } else {
@@ -2156,20 +2337,20 @@
                 }
             });
 
-            $('.ticket-grid .ticket').on('click', function () { 
+            $('.ticket-grid .ticket').on('click', function () {
                 const plan = $(this).data('plan');
                 const type = $(this).data('type');
                 if (type && type !== currentOrderType) return;
-                selectPlan(plan, true); 
+                selectPlan(plan, true);
             });
-            $('.ticket-grid .ticket').on('keydown', function (e) { 
-                if (e.key === 'Enter' || e.key === ' ') { 
-                    e.preventDefault(); 
+            $('.ticket-grid .ticket').on('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
                     const plan = $(this).data('plan');
                     const type = $(this).data('type');
                     if (type && type !== currentOrderType) return;
-                    selectPlan(plan, true); 
-                } 
+                    selectPlan(plan, true);
+                }
             });
             $('#paymentMethod').on('change', updatePaymentInfo);
             $('#couponInput').on('input', handleCouponInputChange);
@@ -2192,12 +2373,12 @@
             $('.faq-q').click(function () { $(this).parent().toggleClass('active').siblings().removeClass('active'); });
             $('#togglePass').click(function () {
                 const input = $('#pass');
-                if (input.attr('type') === 'password') { 
-                    input.attr('type', 'text'); 
-                    $(this).removeClass('fa-eye-slash').addClass('fa-eye').css('color', 'var(--text-primary)'); 
-                } else { 
-                    input.attr('type', 'password'); 
-                    $(this).removeClass('fa-eye').addClass('fa-eye-slash').css('color', 'var(--text-muted)'); 
+                if (input.attr('type') === 'password') {
+                    input.attr('type', 'text');
+                    $(this).removeClass('fa-eye-slash').addClass('fa-eye').css('color', 'var(--text-primary)');
+                } else {
+                    input.attr('type', 'password');
+                    $(this).removeClass('fa-eye').addClass('fa-eye-slash').css('color', 'var(--text-muted)');
                 }
             });
         });
@@ -2205,32 +2386,32 @@
         function updateShopStatus() {
             const hour = new Date().getHours();
             const isOpen = (hour >= 9 && hour < 23);
-            if (isOpen) { 
-                $('#shop-status-ui').html('<div class="status-chip status-on">● Open</div>'); 
-                $('#submitBtn').prop('disabled', false).text("Confirm enrollment"); 
-            } else { 
-                $('#shop-status-ui').html('<div class="status-chip status-off">● Closed · 9AM–11PM</div>'); 
-                $('#submitBtn').prop('disabled', true).text("Enrollment closed"); 
+            if (isOpen) {
+                $('#shop-status-ui').html('<div class="status-chip status-on">● Open</div>');
+                $('#submitBtn').prop('disabled', false).text("Confirm enrollment");
+            } else {
+                $('#shop-status-ui').html('<div class="status-chip status-off">● Closed · 9AM–11PM</div>');
+                $('#submitBtn').prop('disabled', true).text("Enrollment closed");
             }
         }
 
         function syncSelectedPlanCard() {
             const selectedPlan = String($('#plan').val() || '');
-            $('.ticket-grid .ticket').each(function () { 
-                $(this).toggleClass('selected', String($(this).data('plan')) === selectedPlan && $(this).data('type') === currentOrderType); 
+            $('.ticket-grid .ticket').each(function () {
+                $(this).toggleClass('selected', String($(this).data('plan')) === selectedPlan && $(this).data('type') === currentOrderType);
             });
         }
 
         function selectPlan(planValue, shouldScroll) {
             const v = String(planValue || '');
             if (!$(`#plan option[value="${v}"]`).length) return;
-            $('#plan').val(v); 
+            $('#plan').val(v);
             updatePrice();
-            if (shouldScroll) { 
+            if (shouldScroll) {
                 $('.nav-tab').removeClass('active');
                 $('.nav-tab[data-target="order-heading"]').addClass('active');
-                const el = document.getElementById('order-heading'); 
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+                const el = document.getElementById('order-heading');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
@@ -2242,8 +2423,8 @@
             return 30;
         }
 
-        function getSelectedPayment() { 
-            return PAYMENT_METHODS[$('#paymentMethod').val()] || PAYMENT_METHODS.kpay; 
+        function getSelectedPayment() {
+            return PAYMENT_METHODS[$('#paymentMethod').val()] || PAYMENT_METHODS.kpay;
         }
 
         function updatePaymentInfo() {
@@ -2260,15 +2441,15 @@
             }
         }
 
-        function copySelectedPayment() { 
-            copyToClipboard(getSelectedPayment().number); 
+        function copySelectedPayment() {
+            copyToClipboard(getSelectedPayment().number);
         }
 
-        function openTrashBox() { 
-            isTrashOpen = true; 
-            $('#trashBox').show(); 
-            displayTrashHistory(); 
-            setTimeout(function() {
+        function openTrashBox() {
+            isTrashOpen = true;
+            $('#trashBox').show();
+            displayTrashHistory();
+            setTimeout(function () {
                 const el = document.getElementById('trashBox');
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -2294,27 +2475,27 @@
 
         function saveCouponUsageStore(s) { localStorage.setItem(COUPON_USAGE_KEY, JSON.stringify(s)); }
 
-        function getCouponMaxUses(c) { 
-            if (!c) return 0; 
-            if (c.usageType === 'one_time') return 1; 
-            if (c.usageType === 'limited') return Math.max(parseInt(c.maxUses, 10) || 0, 0); 
-            return Infinity; 
+        function getCouponMaxUses(c) {
+            if (!c) return 0;
+            if (c.usageType === 'one_time') return 1;
+            if (c.usageType === 'limited') return Math.max(parseInt(c.maxUses, 10) || 0, 0);
+            return Infinity;
         }
 
-        function getCouponUsedCount(code) { 
-            const n = normalizeCouponCode(code); 
-            return Math.max(parseInt(getCouponUsageStore()[n], 10) || 0, 0); 
+        function getCouponUsedCount(code) {
+            const n = normalizeCouponCode(code);
+            return Math.max(parseInt(getCouponUsageStore()[n], 10) || 0, 0);
         }
 
-        function getCouponRemainingUses(code, c) { 
-            const m = getCouponMaxUses(c); 
-            if (!Number.isFinite(m)) return Infinity; 
-            return Math.max(m - getCouponUsedCount(code), 0); 
+        function getCouponRemainingUses(code, c) {
+            const m = getCouponMaxUses(c);
+            if (!Number.isFinite(m)) return Infinity;
+            return Math.max(m - getCouponUsedCount(code), 0);
         }
 
-        function isCouponExpired(c) { 
-            if (!c || !c.expiry) return false; 
-            return Date.now() > new Date(`${c.expiry}T23:59:59`).getTime(); 
+        function isCouponExpired(c) {
+            if (!c || !c.expiry) return false;
+            return Date.now() > new Date(`${c.expiry}T23:59:59`).getTime();
         }
 
         function getCouponStatus(code) {
@@ -2337,16 +2518,16 @@
             return `${code} | ${parts.join(' | ')}`;
         }
 
-        function setCouponInfo(text, state = '') { 
-            $('#coupon-expiry').text(text).removeClass('ok bad'); 
-            if (state) $('#coupon-expiry').addClass(state); 
+        function setCouponInfo(text, state = '') {
+            $('#coupon-expiry').text(text).removeClass('ok bad');
+            if (state) $('#coupon-expiry').addClass(state);
         }
 
-        function clearAppliedCoupon(msg = 'No coupon applied', state = '') { 
-            appliedCouponCode = ''; 
-            discount = 0; 
-            setCouponInfo(msg, state); 
-            updatePrice(); 
+        function clearAppliedCoupon(msg = 'No coupon applied', state = '') {
+            appliedCouponCode = '';
+            discount = 0;
+            setCouponInfo(msg, state);
+            updatePrice();
         }
 
         function handleCouponInputChange() {
@@ -2356,48 +2537,48 @@
         }
 
         function redeemCoupon(code) {
-            const n = normalizeCouponCode(code); 
+            const n = normalizeCouponCode(code);
             if (!n) return;
-            const s = getCouponUsageStore(); 
-            s[n] = getCouponUsedCount(n) + 1; 
+            const s = getCouponUsageStore();
+            s[n] = getCouponUsedCount(n) + 1;
             saveCouponUsageStore(s);
         }
 
         function applyCoupon() {
             const status = getCouponStatus($('#couponInput').val());
             if (!status.valid) {
-                if (status.reason === 'expired') { 
-                    clearAppliedCoupon(`${status.code} expired`, 'bad'); 
-                    showToast("Coupon expired"); 
-                    return; 
+                if (status.reason === 'expired') {
+                    clearAppliedCoupon(`${status.code} expired`, 'bad');
+                    showToast("Coupon expired");
+                    return;
                 }
-                if (status.reason === 'used') { 
-                    clearAppliedCoupon(`${status.code} already used`, 'bad'); 
-                    showToast("Coupon already used"); 
-                    return; 
+                if (status.reason === 'used') {
+                    clearAppliedCoupon(`${status.code} already used`, 'bad');
+                    showToast("Coupon already used");
+                    return;
                 }
-                if (status.reason === 'exhausted') { 
-                    clearAppliedCoupon(`${status.code} no uses left`, 'bad'); 
-                    showToast("Coupon limit reached"); 
-                    return; 
+                if (status.reason === 'exhausted') {
+                    clearAppliedCoupon(`${status.code} no uses left`, 'bad');
+                    showToast("Coupon limit reached");
+                    return;
                 }
-                clearAppliedCoupon(); 
-                showToast("Invalid coupon"); 
+                clearAppliedCoupon();
+                showToast("Invalid coupon");
                 return;
             }
-            appliedCouponCode = status.code; 
+            appliedCouponCode = status.code;
             discount = status.coupon.discount;
             setCouponInfo(getCouponInfoText(status.code, status.coupon, status.remaining), 'ok');
             updatePrice();
             showToast(`Coupon applied: -${discount} Ks`);
         }
 
-        function getStoredOrders() { 
-            return JSON.parse(localStorage.getItem('lumen_orders')) || []; 
+        function getStoredOrders() {
+            return JSON.parse(localStorage.getItem('lumen_orders')) || [];
         }
 
-        function saveStoredOrders(o) { 
-            localStorage.setItem('lumen_orders', JSON.stringify(o)); 
+        function saveStoredOrders(o) {
+            localStorage.setItem('lumen_orders', JSON.stringify(o));
         }
 
         function pruneStoredOrders() {
@@ -2408,9 +2589,9 @@
             return orders;
         }
 
-        async function manualSync() { 
-            showToast("Syncing…"); 
-            await syncHistoryWithServer(); 
+        async function manualSync() {
+            showToast("Syncing…");
+            await syncHistoryWithServer();
         }
 
         async function syncHistoryWithServer() {
@@ -2424,20 +2605,20 @@
                         if (status.includes("approved")) {
                             const days = orders[i].durationDays || getPlanDaysByValue(orders[i].plan);
                             orders[i].expiry = new Date().getTime() + (days * 24 * 60 * 60 * 1000);
-                            orders[i].active = true; 
-                            orders[i].status = "approved"; 
+                            orders[i].active = true;
+                            orders[i].status = "approved";
                             changed = true;
-                        } else if (status.includes("reject")) { 
-                            orders[i].status = "rejected"; 
-                            changed = true; 
+                        } else if (status.includes("reject")) {
+                            orders[i].status = "rejected";
+                            changed = true;
                         }
                     } catch (e) { }
                 }
             }
-            if (changed) { 
-                saveStoredOrders(orders); 
-                displayOrderHistory(); 
-                displayTrashHistory(); 
+            if (changed) {
+                saveStoredOrders(orders);
+                displayOrderHistory();
+                displayTrashHistory();
             }
         }
 
@@ -2448,34 +2629,34 @@
 
         function getOrderStatusMeta(order, now) {
             if (order.status === 'rejected') {
-                return { 
-                    stateClass: 'is-rejected', 
-                    pillClass: 'rejected', 
-                    pillText: 'Rejected', 
-                    countdownHtml: '<span style="color:var(--red);">Not approved</span>', 
-                    expiryDate: '—', 
-                    progressPct: 0 
+                return {
+                    stateClass: 'is-rejected',
+                    pillClass: 'rejected',
+                    pillText: 'Rejected',
+                    countdownHtml: '<span style="color:var(--red);">Not approved</span>',
+                    expiryDate: '—',
+                    progressPct: 0
                 };
             }
             if (!order.active) {
-                return { 
-                    stateClass: 'is-pending', 
-                    pillClass: 'pending', 
-                    pillText: 'Pending review', 
-                    countdownHtml: '<span style="color:var(--text-muted);">⏳ Awaiting admin approval…</span>', 
-                    expiryDate: '—', 
-                    progressPct: 0 
+                return {
+                    stateClass: 'is-pending',
+                    pillClass: 'pending',
+                    pillText: 'Pending review',
+                    countdownHtml: '<span style="color:var(--text-muted);">⏳ Awaiting admin approval…</span>',
+                    expiryDate: '—',
+                    progressPct: 0
                 };
             }
             const diff = order.expiry - now;
             if (diff <= 0) {
-                return { 
-                    stateClass: 'is-rejected', 
-                    pillClass: 'rejected', 
-                    pillText: 'Expired', 
-                    countdownHtml: '<span style="color:var(--red);">⏰ Access expired</span>', 
-                    expiryDate: formatExpiryDate(order.expiry), 
-                    progressPct: 0 
+                return {
+                    stateClass: 'is-rejected',
+                    pillClass: 'rejected',
+                    pillText: 'Expired',
+                    countdownHtml: '<span style="color:var(--red);">⏰ Access expired</span>',
+                    expiryDate: formatExpiryDate(order.expiry),
+                    progressPct: 0
                 };
             }
             const d = Math.floor(diff / 86400000);
@@ -2484,7 +2665,7 @@
             const s = Math.floor((diff % 60000) / 1000);
             const totalMs = (order.durationDays || 30) * 86400000;
             const progressPct = Math.max(0, Math.min(100, (diff / totalMs) * 100));
-            
+
             let countdownHtml = '';
             if (d > 0) {
                 countdownHtml = `<span class="countdown-number">${d}</span><span>d</span> <span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
@@ -2495,19 +2676,19 @@
             } else {
                 countdownHtml = `<span class="countdown-number">${s}</span><span>s</span>`;
             }
-            
-            return { 
-                stateClass: 'is-active', 
-                pillClass: 'active', 
-                pillText: 'Active', 
-                countdownHtml, 
-                expiryDate: formatExpiryDate(order.expiry), 
-                progressPct 
+
+            return {
+                stateClass: 'is-active',
+                pillClass: 'active',
+                pillText: 'Active',
+                countdownHtml,
+                expiryDate: formatExpiryDate(order.expiry),
+                progressPct
             };
         }
 
-        function escapeHtml(v) { 
-            return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); 
+        function escapeHtml(v) {
+            return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         }
 
         function renderOrderMetaRow(label, value, fallback = 'Not saved') {
@@ -2524,7 +2705,7 @@
             const typeClass = order.orderType === 'manhwa' ? 'type-manhwa' : 'type-manga';
             const typeLabel = order.orderType === 'manhwa' ? 'Manhwa' : 'Manga';
             const typeTagClass = order.orderType === 'manhwa' ? 'manhwa' : 'manga';
-            
+
             return `<div class="membership-card ${meta.stateClass} ${typeClass}" data-order-id="${order.id}" data-expiry="${order.expiry || ''}">
                 <div class="mc-top">
                   <div>
@@ -2559,7 +2740,7 @@
 
         function updateAllCountdowns() {
             const now = new Date().getTime();
-            $('.membership-card.is-active').each(function() {
+            $('.membership-card.is-active').each(function () {
                 const expiry = parseInt($(this).data('expiry'));
                 if (!expiry) return;
                 const diff = expiry - now;
@@ -2571,7 +2752,7 @@
                 const h = Math.floor((diff % 86400000) / 3600000);
                 const m = Math.floor((diff % 3600000) / 60000);
                 const s = Math.floor((diff % 60000) / 1000);
-                
+
                 let html = '';
                 if (d > 0) {
                     html = `<span class="countdown-number">${d}</span><span>d</span> <span class="countdown-number">${h}</span><span>h</span> <span class="countdown-number">${m}</span><span>m</span> <span class="countdown-number">${s}</span><span>s</span>`;
@@ -2588,78 +2769,78 @@
 
         function displayOrderHistory() {
             let orders = pruneStoredOrders().filter(o => !o.deletedAt);
-            if (orders.length === 0) { 
-                $('#orderList').html('<div class="empty-box">No active enrollments yet.</div>'); 
-                return; 
+            if (orders.length === 0) {
+                $('#orderList').html('<div class="empty-box">No active enrollments yet.</div>');
+                return;
             }
             const now = new Date().getTime();
-            let html = ''; 
+            let html = '';
             orders.slice().reverse().forEach(o => html += renderOrderCard(o, now));
             $('#orderList').html(html);
         }
 
         function displayTrashHistory() {
             let orders = pruneStoredOrders().filter(o => o.deletedAt);
-            if (orders.length === 0) { 
-                $('#trashList').html('<div class="empty-box">Trash is empty.</div>'); 
-                $('#trashBox').toggle(isTrashOpen); 
-                return; 
+            if (orders.length === 0) {
+                $('#trashList').html('<div class="empty-box">Trash is empty.</div>');
+                $('#trashBox').toggle(isTrashOpen);
+                return;
             }
             const now = new Date().getTime();
-            let html = ''; 
+            let html = '';
             orders.slice().reverse().forEach(o => html += renderOrderCard(o, now, { deleted: true }));
-            $('#trashList').html(html); 
+            $('#trashList').html(html);
             if (isTrashOpen) $('#trashBox').show();
         }
 
         function moveOrderToTrash(id) {
-            let orders = getStoredOrders(); 
+            let orders = getStoredOrders();
             let changed = false;
-            orders = orders.map(o => { 
-                if (o.id === id && !o.deletedAt) { 
-                    changed = true; 
-                    return { ...o, deletedAt: new Date().toISOString() }; 
-                } 
-                return o; 
+            orders = orders.map(o => {
+                if (o.id === id && !o.deletedAt) {
+                    changed = true;
+                    return { ...o, deletedAt: new Date().toISOString() };
+                }
+                return o;
             });
             if (!changed) return;
-            saveStoredOrders(orders); 
-            displayOrderHistory(); 
-            displayTrashHistory(); 
+            saveStoredOrders(orders);
+            displayOrderHistory();
+            displayTrashHistory();
             showToast("Moved to trash");
         }
 
         function restoreOrder(id) {
-            let orders = getStoredOrders(); 
+            let orders = getStoredOrders();
             let changed = false;
-            orders = orders.map(o => { 
-                if (o.id === id && o.deletedAt) { 
-                    changed = true; 
-                    const r = { ...o }; 
-                    delete r.deletedAt; 
-                    return r; 
-                } 
-                return o; 
+            orders = orders.map(o => {
+                if (o.id === id && o.deletedAt) {
+                    changed = true;
+                    const r = { ...o };
+                    delete r.deletedAt;
+                    return r;
+                }
+                return o;
             });
             if (!changed) return;
-            saveStoredOrders(orders); 
-            displayOrderHistory(); 
-            displayTrashHistory(); 
+            saveStoredOrders(orders);
+            displayOrderHistory();
+            displayTrashHistory();
             showToast("Restored");
         }
 
         function restoreAllOrders() {
             let orders = getStoredOrders();
             if (!orders.some(o => o.deletedAt)) return;
-            orders = orders.map(o => { 
-                if (!o.deletedAt) return o; 
-                const r = { ...o }; 
-                delete r.deletedAt; 
-                return r; 
+            orders = orders.map(o => {
+                if (!o.deletedAt) return o;
+                const r = { ...o };
+                delete r.deletedAt;
+                return r;
             });
-            saveStoredOrders(orders); 
-            displayOrderHistory(); 
-            displayTrashHistory(); 
+            saveStoredOrders(orders);
+            displayOrderHistory();
+            displayTrashHistory();
             showToast("All restored");
         }
 
@@ -2669,11 +2850,11 @@
             const approved = orders.filter(o => o.status === 'approved').length;
             const pending = orders.filter(o => o.status === 'pending' || (!o.active && o.status !== 'rejected')).length;
             const rejected = orders.filter(o => o.status === 'rejected').length;
-            
+
             const activeOrders = orders.filter(o => o.status !== 'rejected');
             const revenue = activeOrders.reduce((sum, o) => sum + (Number(o.payableAmount) || 0), 0);
             const discountUsed = activeOrders.reduce((sum, o) => sum + (Number(o.discountAmount) || 0), 0);
-            
+
             $('#stat-total').text(total);
             $('#stat-revenue').text(revenue.toLocaleString() + ' Ks');
             $('#stat-approved').text(approved);
@@ -2682,13 +2863,13 @@
             $('#stat-discount').text(discountUsed.toLocaleString() + ' Ks');
         }
 
-        function copyToClipboard(t) { 
-            navigator.clipboard.writeText(t).then(() => showToast("✅ Copied")); 
+        function copyToClipboard(t) {
+            navigator.clipboard.writeText(t).then(() => showToast("✅ Copied"));
         }
 
-        function showToast(m) { 
-            $('#toast').text(m).addClass('show'); 
-            setTimeout(() => $('#toast').removeClass('show'), 2000); 
+        function showToast(m) {
+            $('#toast').text(m).addClass('show');
+            setTimeout(() => $('#toast').removeClass('show'), 2000);
         }
 
         // ⭐ sendOrder() - Transfer ID ကို ၆ လုံးအတိအကျပဲ လက်ခံမယ်
@@ -2697,9 +2878,9 @@
             const pass = $('#pass').val().trim();
             const transferId = $('#transferId').val().trim();
             const file = document.getElementById('file').files[0];
-            
+
             if (!name || !pass || !file) return alert("အချက်အလက်ပြည့်စုံစွာဖြည့်ပါ");
-            
+
             // ⭐ Transfer ID စစ်ဆေးခြင်း - ၆ လုံးအတိအကျ
             if (!transferId || transferId.length !== 6) {
                 alert("Transfer ID သည် အတိအကျ ၆ လုံးဖြစ်ရပါမည်");
@@ -2709,7 +2890,7 @@
                 alert("Transfer ID သည် ဂဏန်း ၆ လုံးသာဖြစ်ရပါမည်");
                 return;
             }
-            
+
             const orderID = "#SL-" + Math.floor(1000 + Math.random() * 9000);
             const planVal = String($('#plan').val());
             const planText = $('#plan option:selected').text();
@@ -2723,12 +2904,12 @@
             }
             const couponCode = couponStatus?.valid ? couponStatus.code : '';
             const amount = getFinalAmount();
-            
+
             const enrollPaymentMethod = $('#enrollPaymentMethod').val();
             const payment = PAYMENT_METHODS[enrollPaymentMethod] || PAYMENT_METHODS.kpay;
 
-            $('#res-name').text(name); 
-            $('#res-plan').text(planText); 
+            $('#res-name').text(name);
+            $('#res-plan').text(planText);
             $('#res-type').text(orderType === 'manga' ? '📖 Manga' : '📚 Manhwa');
             $('#res-payment').text(payment.label);
             $('#display-order-id').text(orderID);
@@ -2738,24 +2919,24 @@
 
             try {
                 let orders = getStoredOrders();
-                orders.push({ 
-                    id: orderID, 
-                    name, 
-                    password: pass, 
+                orders.push({
+                    id: orderID,
+                    name,
+                    password: pass,
                     transferId: transferId,
-                    couponCode: couponCode || null, 
-                    plan: planVal, 
-                    planText, 
-                    durationDays: getPlanDaysByValue(planVal), 
+                    couponCode: couponCode || null,
+                    plan: planVal,
+                    planText,
+                    durationDays: getPlanDaysByValue(planVal),
                     orderType: orderType,
-                    paymentMethod: payment.label, 
-                    basePrice: amount.basePrice, 
-                    discountAmount: amount.discountAmount, 
-                    payableAmount: amount.finalPrice, 
-                    createdAt: Date.now(), 
-                    active: false, 
-                    status: "pending", 
-                    expiry: null 
+                    paymentMethod: payment.label,
+                    basePrice: amount.basePrice,
+                    discountAmount: amount.discountAmount,
+                    payableAmount: amount.finalPrice,
+                    createdAt: Date.now(),
+                    active: false,
+                    status: "pending",
+                    expiry: null
                 });
                 saveStoredOrders(orders);
 
@@ -2772,11 +2953,11 @@
                 if (couponCode) redeemCoupon(couponCode);
                 displayStats();
 
-                $('#loading-ui').hide(); 
+                $('#loading-ui').hide();
                 $('#success-ui').show();
-            } catch (e) { 
-                alert("Error — please try again."); 
-                $('#overlay').hide(); 
+            } catch (e) {
+                alert("Error — please try again.");
+                $('#overlay').hide();
             }
         }
     </script>
