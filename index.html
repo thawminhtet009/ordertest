@@ -1840,7 +1840,7 @@
                 <div class="order-type-selector">
                     <button type="button" class="order-type-btn active-manga" id="btnManga"
                         onclick="selectOrderType('manga')">
-                        <i class="fa-solid fa-book-open"></i> Doujinshi
+                        <i class="fa-solid fa-book-open"></i> Manga
                         <span class="badge-type">COMICS</span>
                     </button>
                     <button type="button" class="order-type-btn" id="btnManhwa" onclick="selectOrderType('manhwa')">
@@ -1859,7 +1859,7 @@
                     <!-- Manga Plans -->
                     <div class="ticket manga-plan" data-plan="5000" data-type="manga" role="button" tabindex="0">
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
-                        <div class="ticket-label">Doujinshi Basic</div>
+                        <div class="ticket-label">Manga Basic</div>
                         <div class="ticket-amount">5,000<span>Ks</span></div>
                         <div class="ticket-meta">၁ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
@@ -1883,7 +1883,7 @@
                     <div class="ticket manga-plan" data-plan="55000" data-type="manga" role="button" tabindex="0">
                         <span class="ticket-badge green">Lifetime</span>
                         <div class="ticket-stub"><i class="fa-solid fa-crown crown"></i></div>
-                        <div class="ticket-label">Manga Lifetime</div>
+                        <div class="ticket-label">Doujinshi Lifetime</div>
                         <div class="ticket-amount">55,000<span>Ks</span></div>
                         <div class="ticket-meta">တစ်သက်တာ</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
@@ -1961,9 +1961,9 @@
                         <span class="ticket-badge" style="background: #ff0096;">Lifetime</span>
                         <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
                                 class="fa-solid fa-crown crown" style="color: #ff0096;"></i></div>
-                        <div class="ticket-label">Hentai Lifetime</div>
-                        <div class="ticket-amount">40,000<span>Ks</span></div>
-                        <div class="ticket-meta">တစ်သက်တာ</div>
+                        <div class="ticket-label">Hentai Gloden</div>
+                        <div class="ticket-amount">50,000<span>Ks</span></div>
+                        <div class="ticket-meta">၁ နှစ် access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
                 </div>
@@ -2103,7 +2103,7 @@
                     <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
                         <a href="https://eternalgalaxy.net" target="_blank" class="btn-login manga-login"
                             style="flex:1;text-decoration:none;justify-content:center;">
-                            <i class="fa-solid fa-book-open"></i> Go to Doujinshi
+                            <i class="fa-solid fa-book-open"></i> Go to Manga
                         </a>
                         <a href="https://eternalgalaxy.net" target="_blank" class="btn-login manhwa-login"
                             style="flex:1;text-decoration:none;justify-content:center;">
@@ -2192,8 +2192,7 @@
         const COUPONS = {
             WELCOME500: { discount: 500, expiry: "2026-12-31", usageType: "one_time" },
             COHORT1000: { discount: 1000, expiry: "2026-12-31", usageType: "limited", maxUses: 20 },
-            FAN1500: { discount: 1500, expiry: "2026-12-31", usageType: "multi" },
-            Free2026: { discount: 1000, expiry: "2026-07-04", usageType: "limited", maxUses: 150, type: "bogo" }
+            FAN1500: { discount: 1500, expiry: "2026-12-31", usageType: "multi" }
         };
 
         const PLAN_DATA = {
@@ -2201,10 +2200,10 @@
                 label: 'Manga',
                 icon: 'fa-book-open',
                 plans: [
-                    { value: '4000', days: 30, label: 'Manga Basic — 4,000 Ks' },
-                    { value: '10000', days: 90, label: 'Manga Pro — 10,000 Ks' },
-                    { value: '18000', days: 180, label: 'Manga Premium — 18,000 Ks' },
-                    { value: '25000', days: 3650, label: 'Manga Lifetime — 25,000 Ks' }
+                    { value: '5000', days: 30, label: 'Doujinshi Basic — 5,000 Ks' },
+                    { value: '12000', days: 90, label: 'Doujinshi Pro — 12,000 Ks' },
+                    { value: '24000', days: 180, label: 'Doujinshi Premium — 24,000 Ks' },
+                    { value: '55000', days: 3650, label: 'Doujinshi Lifetime — 55,000 Ks' }
                 ]
             },
             manhwa: {
@@ -2213,8 +2212,8 @@
                 plans: [
                     { value: '5000', days: 30, label: 'Manhwa Basic — 5,000 Ks' },
                     { value: '12000', days: 90, label: 'Manhwa Pro — 12,000 Ks' },
-                    { value: '22000', days: 180, label: 'Manhwa Premium — 22,000 Ks' },
-                    { value: '30000', days: 3650, label: 'Manhwa Lifetime — 30,000 Ks' }
+                    { value: '24000', days: 180, label: 'Manhwa Premium — 24,000 Ks' },
+                    { value: '55000', days: 3650, label: 'Manhwa Lifetime — 55,000 Ks' }
                 ]
             },
             // ⭐ HENTAI DATA အသစ်ထည့်ရန်
@@ -2225,7 +2224,7 @@
                     { value: '6000', days: 30, label: 'Hentai Basic — 6,000 Ks' },
                     { value: '15000', days: 90, label: 'Hentai Pro — 15,000 Ks' },
                     { value: '28000', days: 180, label: 'Hentai Premium — 28,000 Ks' },
-                    { value: '40000', days: 3650, label: 'Hentai Lifetime — 40,000 Ks' }
+                    { value: '50000', days: 3650, label: 'Hentai Golden — 50,000 Ks' }
                 ]
             }
         };
@@ -2456,26 +2455,13 @@
             }, 100);
         }
 
-function updatePrice() {
-    let base = parseInt($('#plan').val(), 10) || 0;
-    let final = Math.max(base - discount, 0);
-    
-    // ⭐ BOGO စစ်ဆေးပြီး ပြမယ်
-    const isBogo = localStorage.getItem('lumen_bogo_active') === 'true';
-    let bogoHtml = '';
-    if (isBogo && appliedCouponCode && COUPONS[appliedCouponCode]?.type === 'bogo') {
-        bogoHtml = '<div style="color:var(--green);font-weight:bold;font-size:0.9rem;">🎉 BOGO FREE! (Buy 1 Get 1)</div>';
-    }
-    
-    let priceHtml = discount > 0 
-        ? `<span class="strike">${base} Ks</span> ${final} Ks` 
-        : `Total: ${final} Ks`;
-    
-    $('#price-display').html(priceHtml);
-    $('#bogo-display').html(bogoHtml); // UI မှာ `<div id="bogo-display"></div>` ထည့်ထားရမယ်
-    $('#formCard').toggleClass('glow', base >= 10000);
-    syncSelectedPlanCard();
-}
+        function updatePrice() {
+            let base = parseInt($('#plan').val(), 10) || 0;
+            let final = Math.max(base - discount, 0);
+            $('#price-display').html(discount > 0 ? `<span class="strike">${base} Ks</span> ${final} Ks` : `Total: ${final} Ks`);
+            $('#formCard').toggleClass('glow', base >= 10000);
+            syncSelectedPlanCard();
+        }
 
         function getFinalAmount() {
             const basePrice = parseInt($('#plan').val()) || 0;
@@ -2512,26 +2498,17 @@ function updatePrice() {
             return Date.now() > new Date(`${c.expiry}T23:59:59`).getTime();
         }
 
-       function getCouponStatus(code) {
-    const n = normalizeCouponCode(code);
-    if (!n) return { valid: false, reason: 'empty' };
-    const c = COUPONS[n];
-    if (!c) return { valid: false, reason: 'invalid', code: n };
-    if (isCouponExpired(c)) return { valid: false, reason: 'expired', code: n, coupon: c };
-    
-    // BOGO ဆိုရင် usage check မလုပ်ဘူး (ဒါမှမဟုတ် သီးသန့်စစ်မယ်)
-    if (c.type === 'bogo') {
-        // BOGO ကို တစ်ခါပဲသုံးလို့ရမယ်ဆိုရင်
-        const remaining = getCouponRemainingUses(n, c);
-        if (remaining <= 0) return { valid: false, reason: 'used', code: n, coupon: c, remaining };
-        return { valid: true, code: n, coupon: c, remaining };
-    }
-    
-    const remaining = getCouponRemainingUses(n, c);
-    if (c.usageType === 'one_time' && remaining <= 0) return { valid: false, reason: 'used', code: n, coupon: c, remaining };
-    if (c.usageType === 'limited' && remaining <= 0) return { valid: false, reason: 'exhausted', code: n, coupon: c, remaining };
-    return { valid: true, code: n, coupon: c, remaining };
-}
+        function getCouponStatus(code) {
+            const n = normalizeCouponCode(code);
+            if (!n) return { valid: false, reason: 'empty' };
+            const c = COUPONS[n];
+            if (!c) return { valid: false, reason: 'invalid', code: n };
+            if (isCouponExpired(c)) return { valid: false, reason: 'expired', code: n, coupon: c };
+            const remaining = getCouponRemainingUses(n, c);
+            if (c.usageType === 'one_time' && remaining <= 0) return { valid: false, reason: 'used', code: n, coupon: c, remaining };
+            if (c.usageType === 'limited' && remaining <= 0) return { valid: false, reason: 'exhausted', code: n, coupon: c, remaining };
+            return { valid: true, code: n, coupon: c, remaining };
+        }
 
         function getCouponInfoText(code, c, remaining) {
             const parts = [`Expiry: ${c.expiry || '-'}`];
@@ -2547,12 +2524,11 @@ function updatePrice() {
         }
 
         function clearAppliedCoupon(msg = 'No coupon applied', state = '') {
-    appliedCouponCode = '';
-    discount = 0;
-    localStorage.removeItem('lumen_bogo_active'); // BOGO flag ကိုပါ ရှင်းမယ်
-    setCouponInfo(msg, state);
-    updatePrice();
-}
+            appliedCouponCode = '';
+            discount = 0;
+            setCouponInfo(msg, state);
+            updatePrice();
+        }
 
         function handleCouponInputChange() {
             const cur = normalizeCouponCode($('#couponInput').val());
@@ -2569,47 +2545,33 @@ function updatePrice() {
         }
 
         function applyCoupon() {
-    const status = getCouponStatus($('#couponInput').val());
-    if (!status.valid) {
-        if (status.reason === 'expired') {
-            clearAppliedCoupon(`${status.code} expired`, 'bad');
-            showToast("Coupon expired");
-            return;
+            const status = getCouponStatus($('#couponInput').val());
+            if (!status.valid) {
+                if (status.reason === 'expired') {
+                    clearAppliedCoupon(`${status.code} expired`, 'bad');
+                    showToast("Coupon expired");
+                    return;
+                }
+                if (status.reason === 'used') {
+                    clearAppliedCoupon(`${status.code} already used`, 'bad');
+                    showToast("Coupon already used");
+                    return;
+                }
+                if (status.reason === 'exhausted') {
+                    clearAppliedCoupon(`${status.code} no uses left`, 'bad');
+                    showToast("Coupon limit reached");
+                    return;
+                }
+                clearAppliedCoupon();
+                showToast("Invalid coupon");
+                return;
+            }
+            appliedCouponCode = status.code;
+            discount = status.coupon.discount;
+            setCouponInfo(getCouponInfoText(status.code, status.coupon, status.remaining), 'ok');
+            updatePrice();
+            showToast(`Coupon applied: -${discount} Ks`);
         }
-        if (status.reason === 'used') {
-            clearAppliedCoupon(`${status.code} already used`, 'bad');
-            showToast("Coupon already used");
-            return;
-        }
-        if (status.reason === 'exhausted') {
-            clearAppliedCoupon(`${status.code} no uses left`, 'bad');
-            showToast("Coupon limit reached");
-            return;
-        }
-        clearAppliedCoupon();
-        showToast("Invalid coupon");
-        return;
-    }
-    
-    appliedCouponCode = status.code;
-    
-    // ⭐ BOGO ဆိုရင် discount ကို 0 ထားပြီး flag ထည့်မယ်
-    if (status.coupon.type === 'bogo') {
-        discount = 0;
-        // BOGO flag ကို သိမ်းမယ်
-        localStorage.setItem('lumen_bogo_active', 'true');
-        setCouponInfo(`🎉 BOGO FREE! (${status.code})`, 'ok');
-        updatePrice();
-        showToast(`🎉 Buy 1 Get 1 Free applied!`);
-        return;
-    }
-    
-    // သာမန် discount coupon
-    discount = status.coupon.discount;
-    setCouponInfo(getCouponInfoText(status.code, status.coupon, status.remaining), 'ok');
-    updatePrice();
-    showToast(`Coupon applied: -${discount} Ks`);
-}
 
         function getStoredOrders() {
             return JSON.parse(localStorage.getItem('lumen_orders')) || [];
@@ -2942,9 +2904,6 @@ function updatePrice() {
             }
             const couponCode = couponStatus?.valid ? couponStatus.code : '';
             const amount = getFinalAmount();
-            // ⭐ BOGO စစ်ဆေးပြီး မှတ်တမ်းထည့်မယ်
-const isBogo = localStorage.getItem('lumen_bogo_active') === 'true';
-const bogoApplied = isBogo && appliedCouponCode && COUPONS[appliedCouponCode]?.type === 'bogo';
 
             const enrollPaymentMethod = $('#enrollPaymentMethod').val();
             const payment = PAYMENT_METHODS[enrollPaymentMethod] || PAYMENT_METHODS.kpay;
@@ -2961,44 +2920,31 @@ const bogoApplied = isBogo && appliedCouponCode && COUPONS[appliedCouponCode]?.t
             try {
                 let orders = getStoredOrders();
                 orders.push({
-    id: orderID,
-    name,
-    password: pass,
-    transferId: transferId,
-    couponCode: couponCode || null,
-    plan: planVal,
-    planText,
-    durationDays: getPlanDaysByValue(planVal),
-    orderType: orderType,
-    paymentMethod: payment.label,
-    basePrice: amount.basePrice,
-    discountAmount: amount.discountAmount,
-    payableAmount: amount.finalPrice,
-    createdAt: Date.now(),
-    active: false,
-    status: "pending",
-    expiry: null,
-    isBogo: bogoApplied  // ⭐ BOGO ဖြစ်ကြောင်း သိမ်းမယ်
-});
+                    id: orderID,
+                    name,
+                    password: pass,
+                    transferId: transferId,
+                    couponCode: couponCode || null,
+                    plan: planVal,
+                    planText,
+                    durationDays: getPlanDaysByValue(planVal),
+                    orderType: orderType,
+                    paymentMethod: payment.label,
+                    basePrice: amount.basePrice,
+                    discountAmount: amount.discountAmount,
+                    payableAmount: amount.finalPrice,
+                    createdAt: Date.now(),
+                    active: false,
+                    status: "pending",
+                    expiry: null
+                });
                 saveStoredOrders(orders);
 
                 const fd = new FormData();
                 fd.append('chat_id', CHAT_ID);
                 fd.append('photo', file);
-                fd.append('caption', `📘 NEW ENROLLMENT
-
-🆔 ID: ${orderID}
-📚 Type: ${orderType.toUpperCase()}
-👤 Name: ${name}
-🔒 Pass: ${pass}
-🔢 Transfer ID: ${transferId}
-📝 Plan: ${planText}
-💳 Payment: ${payment.label} (${payment.number})
-🎫 Coupon: ${couponCode || 'None'}
-${bogoApplied ? '🎉 BOGO: Buy 1 Get 1 FREE! 🎉' : ''}
-💵 Base: ${amount.basePrice} Ks
-💸 Discount: ${amount.discountAmount} Ks
-🪙 Payable: ${amount.finalPrice} Ks`);
+                fd.append('caption', `📘 NEW ENROLLMENT\n\n🆔 ID: ${orderID}\n📚 Type: ${orderType.toUpperCase()}\n👤 Name: ${name}\n🔒 Pass: ${pass}\n🔢 Transfer ID: ${transferId}\n📝 Plan: ${planText}\n💳 Payment: ${payment.label} (${payment.number})\n🎫 Coupon: ${couponCode || 'None'}\n💵 Base: ${amount.basePrice} Ks\n💸 Discount: ${amount.discountAmount} Ks\n🪙 Payable: ${amount.finalPrice} Ks`);
+                const telegramPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, { method: 'POST', body: fd });
 
                 const sheetBody = { action: 'newOrder', orderID, orderType, name, transferId, plan: planVal, planText, paymentMethod: payment.label, paymentNumber: payment.number, coupon: couponCode || 'None', baseAmount: amount.basePrice, discountAmount: amount.discountAmount, payableAmount: amount.finalPrice };
                 const sheetPromise = fetch(WEB_APP_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(sheetBody) });
@@ -3014,7 +2960,7 @@ ${bogoApplied ? '🎉 BOGO: Buy 1 Get 1 FREE! 🎉' : ''}
                 $('#overlay').hide();
             }
         }
-        // Keyboard Shortcuts တွေကို ပိတ်မယ် (F12, Ctrl+Shift+I, Ctrl+U)
+                // Keyboard Shortcuts တွေကို ပိတ်မယ် (F12, Ctrl+Shift+I, Ctrl+U)
         document.onkeydown = function (e) {
             if (e.keyCode == 123) { return false; } // F12
             if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
