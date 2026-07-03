@@ -30,10 +30,8 @@
             --manga-color: #e50914;
             --manhwa-color: #f7971e;
             --hentai-color: #ff0096;
-            /* ⭐ Hentai အတွက် အရောင် */
         }
 
-        /* ⭐ Hentai Button Active Style */
         .order-type-btn.active-hentai {
             border-color: var(--hentai-color);
             background: rgba(255, 0, 150, 0.12);
@@ -41,15 +39,6 @@
             box-shadow: 0 0 25px rgba(255, 0, 150, 0.1);
         }
 
-        /* ⭐ Hentai Button Active Style */
-        .order-type-btn.active-hentai {
-            border-color: var(--hentai-color);
-            background: rgba(255, 0, 150, 0.12);
-            color: #fff;
-            box-shadow: 0 0 25px rgba(255, 0, 150, 0.1);
-        }
-
-        /* ⭐ Hentai Membership Card */
         .membership-card.type-hentai {
             border-left: 3px solid var(--hentai-color);
         }
@@ -93,17 +82,14 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
-
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--red);
             border-radius: 3px;
         }
 
-        /* NAV */
         .topbar {
             position: fixed;
             top: 0;
@@ -178,7 +164,6 @@
             border-color: rgba(229, 9, 20, 0.3);
         }
 
-        /* HERO */
         .hero {
             position: relative;
             z-index: 1;
@@ -259,7 +244,6 @@
             font-family: 'Inter';
         }
 
-        /* VIP FEATURES */
         .vip-story-carousel {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -323,13 +307,11 @@
         }
 
         @keyframes pulse-ring {
-
             0%,
             100% {
                 opacity: 0.4;
                 transform: scale(1);
             }
-
             50% {
                 opacity: 1;
                 transform: scale(1.03);
@@ -414,20 +396,16 @@
         .vip-story-item:nth-child(1) {
             border-color: rgba(255, 215, 0, 0.3);
         }
-
         .vip-story-item:nth-child(2) {
             border-color: rgba(70, 211, 105, 0.3);
         }
-
         .vip-story-item:nth-child(3) {
             border-color: rgba(36, 161, 222, 0.3);
         }
-
         .vip-story-item:nth-child(4) {
             border-color: rgba(255, 215, 0, 0.3);
         }
 
-        /* STAT GRID */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -482,27 +460,22 @@
             background: var(--gold-soft);
             color: var(--gold);
         }
-
         .stat-icon.green {
             background: rgba(70, 211, 105, 0.12);
             color: var(--green);
         }
-
         .stat-icon.red {
             background: rgba(229, 9, 20, 0.12);
             color: var(--red);
         }
-
         .stat-icon.slate {
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-muted);
         }
 
-        /* ORDER TYPE SELECTOR - Mobile Friendly */
         .order-type-selector {
             display: flex;
             flex-wrap: wrap;
-            /* ⭐ အောက်ကိုဆင်းခွင့်ပြုတယ် */
             gap: 8px;
             margin-bottom: 16px;
         }
@@ -557,7 +530,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* TICKET CARDS */
         .ticket-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -725,7 +697,6 @@
             opacity: 1;
         }
 
-        /* FORM */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -881,7 +852,6 @@
             cursor: not-allowed;
         }
 
-        /* LOGIN BUTTON STYLES (Quick Links) */
         .btn-login {
             display: inline-flex;
             align-items: center;
@@ -920,7 +890,6 @@
             font-size: 16px;
         }
 
-        /* PAYMENT */
         .pay-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -1013,7 +982,6 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        /* FAQ */
         .faq-item {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -1063,7 +1031,6 @@
             max-height: 220px;
         }
 
-        /* PROFILE */
         .profile-header {
             display: flex;
             align-items: center;
@@ -1096,7 +1063,6 @@
             margin-top: 2px;
         }
 
-        /* MEMBERSHIP CARD */
         .membership-card {
             position: relative;
             border-radius: var(--radius);
@@ -1375,7 +1341,6 @@
             color: var(--text-muted);
         }
 
-        /* OVERLAY */
         #overlay {
             position: fixed;
             inset: 0;
@@ -1462,7 +1427,6 @@
             color: var(--text-primary);
         }
 
-        /* ⭐ RECEIPT ACTIONS - Done Button Only */
         .receipt-actions {
             display: flex;
             flex-direction: column;
@@ -1489,7 +1453,6 @@
             background: var(--red-hover);
         }
 
-        /* TOAST */
         #toast {
             visibility: hidden;
             opacity: 0;
@@ -1515,7 +1478,6 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* TELEGRAM FLOAT */
         .tg-float {
             position: fixed;
             bottom: 78px;
@@ -1560,7 +1522,6 @@
             opacity: 1;
         }
 
-        /* BOTTOM NAV */
         .bottom-nav {
             position: fixed;
             left: 0;
@@ -1617,57 +1578,45 @@
             color: #fff;
         }
 
-        /* TRASH */
         #trashBox {
             display: none;
         }
 
-        /* SCROLL TARGET */
         .scroll-target {
             scroll-margin-top: 80px;
         }
 
-        /* Responsive */
         @media (max-width: 480px) {
             .ticket-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
             }
-
             .ticket-grid .ticket {
                 min-height: 120px;
                 padding: 12px 8px;
             }
-
             .ticket-grid .ticket .ticket-amount {
                 font-size: 1.1rem;
             }
-
             .vip-story-carousel {
                 gap: 6px;
             }
-
             .vip-story-item {
                 min-height: 120px;
                 padding: 8px 6px;
             }
-
             .vip-story-item .vip-emoji {
                 font-size: 22px;
             }
-
             .vip-story-item .vip-value {
                 font-size: 8px;
             }
-
             .order-type-selector {
                 flex-direction: column;
             }
-
             .receipt-actions {
                 flex-direction: column;
             }
-
             .btn-login {
                 font-size: 11px;
                 padding: 12px 16px;
@@ -1680,15 +1629,12 @@
 <body>
     <div id="toast">✅ Copied</div>
 
-    <!-- OVERLAY: Success/Enrollment -->
     <div id="overlay">
         <div id="loading-ui">
             <div class="spinner"></div>
-            <p
-                style="font-weight:800;color:var(--text-muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">
+            <p style="font-weight:800;color:var(--text-muted);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;">
                 Sending enrollment…</p>
         </div>
-        <!-- ⭐ SUCCESS UI - Login Buttons ဖယ်ရှားပြီး Done ပဲကျန် -->
         <div class="receipt" style="display:none;" id="success-ui">
             <div style="width:90px;height:90px;margin:0 auto;display:flex;align-items:center;justify-content:center;">
                 <i class="fa-solid fa-circle-check" style="font-size:90px;color:var(--green);"></i>
@@ -1722,7 +1668,7 @@
         <div class="hero-inner">
             <span class="hero-badge">🔥 Limited Seats</span>
             <h1 class="serif">Eternal galaxy</h1>
-            <p>Doujinshi / Manhwa /Hentai — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
+            <p>Doujinshi / Manhwa / Hentai — ငွေလွှဲ slip တင်ပြီး Admin အတည်ပြုပြီးရင် အကောင့်ဖွင့်ပေးပါမယ်
             </p>
         </div>
     </header>
@@ -1736,63 +1682,50 @@
                 <div style="display:flex;align-items:center;justify-content:space-between;padding:0 12px 10px;">
                     <div style="display:flex;align-items:center;gap:8px;">
                         <span style="font-size:18px;">⭐</span>
-                        <h3
-                            style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--text-primary);margin:0;">
+                        <h3 style="font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--text-primary);margin:0;">
                             VIP မှာဘာတွေပါလဲ</h3>
                     </div>
                 </div>
 
-                <div
-                    style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;">
+                <div style="display:flex;gap:8px;overflow-x:auto;padding:0 12px 8px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;">
                     <style>
                         .fb-story-carousel::-webkit-scrollbar {
                             display: none;
                         }
                     </style>
 
-
-                    <div
-                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(229,9,20,0.6);cursor:pointer;transition:all 0.2s;">
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(229,9,20,0.6);cursor:pointer;transition:all 0.2s;">
                         <img src="https://i.postimg.cc/nzwSkj7Q/photo-2026-06-29-21-48-00.jpg"
                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
                         </div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span
-                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Hentai</span>
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Hentai</span>
                         </div>
                     </div>
 
-                    <div
-                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.3);cursor:pointer;transition:all 0.2s;">
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,215,0,0.3);cursor:pointer;transition:all 0.2s;">
                         <img src="https://i.postimg.cc/j5k3XwNf/photo-2026-06-29-21-47-59.jpg"
                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
                         </div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span
-                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Doujinshi</span>
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Doujinshi</span>
                         </div>
                     </div>
 
-                    <div
-                        style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.2s;">
+                    <div style="flex:0 0 110px;scroll-snap-align:start;border-radius:12px;overflow:hidden;position:relative;aspect-ratio:9/16;background:#1a1a1a;border:3px solid rgba(255,255,255,0.1);cursor:pointer;transition:all 0.2s;">
                         <img src="https://i.postimg.cc/mD6pwzMH/photo-2026-06-29-21-47-56.jpg"
                             style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
-                        <div
-                            style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
+                        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.8) 100%);z-index:1;">
                         </div>
                         <div style="position:absolute;bottom:8px;left:8px;right:8px;z-index:2;">
-                            <span
-                                style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Manhwa</span>
+                            <span style="font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,0.6);">Manhwa</span>
                         </div>
                     </div>
                 </div>
 
-                <p
-                    style="font-size:10px;color:var(--text-muted);text-align:center;margin:8px 16px 0;line-height:1.6;padding:0 4px;">
+                <p style="font-size:10px;color:var(--text-muted);text-align:center;margin:8px 16px 0;line-height:1.6;padding:0 4px;">
                     အထပ်ပါဖော်ပြပါ ဟာများပါဝင်ပြီးကြော်ငြာများမပါပဲတိုက်ရိုက်ကြည့်ရှု နိုင်ပါတယ်
                 </p>
             </section>
@@ -1840,14 +1773,13 @@
                 <div class="order-type-selector">
                     <button type="button" class="order-type-btn active-manga" id="btnManga"
                         onclick="selectOrderType('manga')">
-                        <i class="fa-solid fa-book-open"></i> Manga
+                        <i class="fa-solid fa-book-open"></i> Doujinshi
                         <span class="badge-type">COMICS</span>
                     </button>
                     <button type="button" class="order-type-btn" id="btnManhwa" onclick="selectOrderType('manhwa')">
                         <i class="fa-solid fa-book"></i> Manhwa
                         <span class="badge-type">WEBTOONS</span>
                     </button>
-                    <!-- ⭐ HENTAI BUTTON အသစ်ထည့်ရန် -->
                     <button type="button" class="order-type-btn" id="btnHentai" onclick="selectOrderType('hentai')"
                         style="border-color: rgba(255, 0, 150, 0.3);">
                         <i class="fa-solid fa-film"></i> Hentai
@@ -1859,7 +1791,7 @@
                     <!-- Manga Plans -->
                     <div class="ticket manga-plan" data-plan="5000" data-type="manga" role="button" tabindex="0">
                         <div class="ticket-stub"><i class="fa-solid fa-ticket"></i></div>
-                        <div class="ticket-label">Manga Basic</div>
+                        <div class="ticket-label">Doujinshi Basic</div>
                         <div class="ticket-amount">5,000<span>Ks</span></div>
                         <div class="ticket-meta">၁ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
@@ -1926,7 +1858,7 @@
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
 
-                    <!-- ⭐ HENTAI PLANS အသစ်ထည့်ရန် -->
+                    <!-- Hentai Plans -->
                     <div class="ticket hentai-plan" data-plan="6000" data-type="hentai" role="button" tabindex="0"
                         style="display:none; border-color: rgba(255, 0, 150, 0.3);">
                         <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
@@ -1956,12 +1888,12 @@
                         <div class="ticket-meta">၆ လ access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
                     </div>
-                    <div class="ticket hentai-plan" data-plan="40000" data-type="hentai" role="button" tabindex="0"
+                    <div class="ticket hentai-plan" data-plan="50000" data-type="hentai" role="button" tabindex="0"
                         style="display:none; border-color: rgba(255, 0, 150, 0.3);">
                         <span class="ticket-badge" style="background: #ff0096;">Lifetime</span>
                         <div class="ticket-stub" style="background: rgba(255, 0, 150, 0.15);"><i
                                 class="fa-solid fa-crown crown" style="color: #ff0096;"></i></div>
-                        <div class="ticket-label">Hentai Gloden</div>
+                        <div class="ticket-label">Hentai Golden</div>
                         <div class="ticket-amount">50,000<span>Ks</span></div>
                         <div class="ticket-meta">၁ နှစ် access</div>
                         <div class="ticket-check"><i class="fa-solid fa-check"></i></div>
@@ -1981,7 +1913,6 @@
                         <div class="faq-q">Manga နဲ့ Manhwa ဘာကွာလဲ? <i class="fa-solid fa-chevron-down"></i></div>
                         <div class="faq-a">ဇာတ်လမ်းရှည်ရှည်နဲ့ Series အပုဒ်လိုက် ဖတ်ချင်တယ်ဆိုရင်တော့ Manhwa ကို
                             ရွေးချယ်ဖို အကြံပြုချင်ပါတယ်ဗျ။
-
                             အကယ်၍ ကိုယ်ကြိုက်တဲ့ Anime Character တွေ ပါဝင်တာမျိုးကိုမှ ဖတ်ချင်တယ်ဆိုရင်တော့ Doujinshi က
                             အကောင်းဆုံး ဖြစ်မှာပါဗျ</div>
                     </div>
@@ -2027,7 +1958,7 @@
                                     <span id="displayOrderType"
                                         style="background:var(--bg-card);padding:8px 16px;border-radius:6px;border:1px solid var(--border);font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px;">
                                         <i class="fa-solid fa-book-open" id="orderTypeIcon"></i>
-                                        <span id="orderTypeText">Manga</span>
+                                        <span id="orderTypeText">Doujinshi</span>
                                     </span>
                                 </div>
                             </div>
@@ -2042,7 +1973,6 @@
                                         tabindex="0" aria-label="Show password"></i>
                                 </div>
                             </div>
-                            <!-- ⭐ Transfer ID - maxlength 6 ထည့်ထားတယ် -->
                             <div class="field">
                                 <label>Transfer ID (နောက်ဆုံး ၆ လုံး)</label>
                                 <input type="text" id="transferId" placeholder="ဥပမာ - 123456" maxlength="6"
@@ -2052,14 +1982,13 @@
                             <div class="field">
                                 <label>Plan</label>
                                 <select id="plan" onchange="updatePrice()">
-                                    <option value="4000" data-days="30" data-type="manga">Doujinshi Basic — 5,000 Ks
+                                    <option value="5000" data-days="30" data-type="manga">Doujinshi Basic — 5,000 Ks
                                     </option>
-                                    <option value="10000" data-days="90" data-type="manga" selected>Doujinshi Pro — 12,000
-                                        Ks
+                                    <option value="12000" data-days="90" data-type="manga" selected>Doujinshi Pro — 12,000 Ks
                                     </option>
-                                    <option value="18000" data-days="180" data-type="manga">Doujinshi Premium — 24000 Ks
+                                    <option value="24000" data-days="180" data-type="manga">Doujinshi Premium — 24,000 Ks
                                     </option>
-                                    <option value="25000" data-days="3650" data-type="manga">Doujinshi Lifetime — 55,000 Ks
+                                    <option value="55000" data-days="3650" data-type="manga">Doujinshi Lifetime — 55,000 Ks
                                     </option>
                                 </select>
                             </div>
@@ -2082,7 +2011,7 @@
                             </div>
                             <div class="field"><label>Payment slip</label><input type="file" id="file" accept="image/*"
                                     style="padding-top:12px;"></div>
-                            <div id="price-display" class="price-total">Total: 10,000 Ks</div>
+                            <div id="price-display" class="price-total">Total: 12,000 Ks</div>
                             <button type="button" class="btn-submit" id="submitBtn" onclick="sendOrder()">Confirm
                                 enrollment</button>
                         </form>
@@ -2099,17 +2028,15 @@
                         </div>
                     </div>
 
-                    <!-- ⭐ PROFILE - Quick Links (Manga, Manhwa, Hentai) -->
                     <div style="display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;">
                         <a href="https://eternalgalaxy.net" target="_blank" class="btn-login manga-login"
                             style="flex:1;text-decoration:none;justify-content:center;">
-                            <i class="fa-solid fa-book-open"></i> Go to Manga
+                            <i class="fa-solid fa-book-open"></i> Go to Doujinshi
                         </a>
                         <a href="https://eternalgalaxy.net" target="_blank" class="btn-login manhwa-login"
                             style="flex:1;text-decoration:none;justify-content:center;">
                             <i class="fa-solid fa-book"></i> Go to Manhwa
                         </a>
-                        <!-- ⭐ HENTAI BUTTON အသစ်ထည့်ရန် -->
                         <a href="https://free.hentaiscans.com" target="_blank" class="btn-login"
                             style="flex:1;text-decoration:none;justify-content:center; background: linear-gradient(135deg, #ff0096, #ff6bb5); color: #fff;">
                             <i class="fa-solid fa-film"></i> Go to Hentai
@@ -2173,12 +2100,6 @@
     </nav>
 
     <script>
-        /* ====================================================================
-           SECURITY NOTE
-           Replace these with calls to your own backend (Cloud Function /
-           serverless endpoint). Never ship a Telegram bot token in client-side
-           JS in production — anyone viewing source can read and abuse it.
-        ==================================================================== */
         const BOT_TOKEN = "8822960640:AAGm2MulSuslRvy0XFv52kGLh4YTGBjbDhg";
         const CHAT_ID = "-1003740087488";
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxI5wTdPfSNuPrWmJ9AaFgD8M2_gUYFBM4coACMLYguAGB0MYd4CbjCg8u-EO2SwXFTEA/exec";
@@ -2197,7 +2118,7 @@
 
         const PLAN_DATA = {
             manga: {
-                label: 'Manga',
+                label: 'Doujinshi',
                 icon: 'fa-book-open',
                 plans: [
                     { value: '5000', days: 30, label: 'Doujinshi Basic — 5,000 Ks' },
@@ -2216,7 +2137,6 @@
                     { value: '55000', days: 3650, label: 'Manhwa Lifetime — 55,000 Ks' }
                 ]
             },
-            // ⭐ HENTAI DATA အသစ်ထည့်ရန်
             hentai: {
                 label: 'Hentai',
                 icon: 'fa-film',
@@ -2458,7 +2378,7 @@
         function updatePrice() {
             let base = parseInt($('#plan').val(), 10) || 0;
             let final = Math.max(base - discount, 0);
-            $('#price-display').html(discount > 0 ? `<span class="strike">${base} Ks</span> ${final} Ks` : `Total: ${final} Ks`);
+            $('#price-display').html(discount > 0 ? `<span class="strike">${base.toLocaleString()} Ks</span> ${final.toLocaleString()} Ks` : `Total: ${final.toLocaleString()} Ks`);
             $('#formCard').toggleClass('glow', base >= 10000);
             syncSelectedPlanCard();
         }
@@ -2702,9 +2622,9 @@
                 ? `<button type="button" class="order-btn res" onclick="restoreOrder('${order.id}')" title="Restore"><i class="fa-solid fa-rotate-left"></i></button>`
                 : `<button type="button" class="order-btn del" onclick="moveOrderToTrash('${order.id}')" title="Move to trash"><i class="fa-solid fa-trash"></i></button>`;
             const showBar = meta.pillClass === 'active';
-            const typeClass = order.orderType === 'manhwa' ? 'type-manhwa' : 'type-manga';
-            const typeLabel = order.orderType === 'manhwa' ? 'Manhwa' : 'Manga';
-            const typeTagClass = order.orderType === 'manhwa' ? 'manhwa' : 'manga';
+            const typeClass = order.orderType === 'manhwa' ? 'type-manhwa' : (order.orderType === 'hentai' ? 'type-hentai' : 'type-manga');
+            const typeLabel = order.orderType === 'manhwa' ? 'Manhwa' : (order.orderType === 'hentai' ? 'Hentai' : 'Manga');
+            const typeTagClass = order.orderType === 'manhwa' ? 'manhwa' : (order.orderType === 'hentai' ? 'hentai' : 'manga');
 
             return `<div class="membership-card ${meta.stateClass} ${typeClass}" data-order-id="${order.id}" data-expiry="${order.expiry || ''}">
                 <div class="mc-top">
@@ -2872,7 +2792,7 @@
             setTimeout(() => $('#toast').removeClass('show'), 2000);
         }
 
-        // ⭐ sendOrder() - Transfer ID ကို ၆ လုံးအတိအကျပဲ လက်ခံမယ်
+        // ⭐ MAIN SEND ORDER FUNCTION WITH DUPLICATE CHECK
         async function sendOrder() {
             const name = $('#name').val().trim();
             const pass = $('#pass').val().trim();
@@ -2881,7 +2801,6 @@
 
             if (!name || !pass || !file) return alert("အချက်အလက်ပြည့်စုံစွာဖြည့်ပါ");
 
-            // ⭐ Transfer ID စစ်ဆေးခြင်း - ၆ လုံးအတိအကျ
             if (!transferId || transferId.length !== 6) {
                 alert("Transfer ID သည် အတိအကျ ၆ လုံးဖြစ်ရပါမည်");
                 return;
@@ -2889,6 +2808,42 @@
             if (!/^\d+$/.test(transferId)) {
                 alert("Transfer ID သည် ဂဏန်း ၆ လုံးသာဖြစ်ရပါမည်");
                 return;
+            }
+
+            // ⭐ DUPLICATE CHECK - အရင်က တင်ဖူးလား စစ်မယ်
+            const existingOrders = getStoredOrders().filter(o => !o.deletedAt);
+            
+            // နာမည်တူပြီး Transfer ID တူတဲ့ Order (Pending/Approved) ရှိလား
+            const duplicateById = existingOrders.find(o => 
+                o.name === name && 
+                o.transferId === transferId && 
+                (o.status === 'pending' || o.status === 'approved')
+            );
+            
+            // နာမည်တူပြီး Status Pending/Approved ရှိလား (Transfer ID မတူရင်တောင်)
+            const duplicateByName = existingOrders.find(o => 
+                o.name === name && 
+                (o.status === 'pending' || o.status === 'approved')
+            );
+
+            // ⭐ YES/NO သတ်မှတ်မယ်
+            let duplicateStatus = '✅ NO (First time)';
+            
+            if (duplicateById) {
+                duplicateStatus = '⚠️ YES (Previously enrolled - Same Name & Transfer ID)';
+                alert(`⚠️ ဒီနာမည် (${name}) နဲ့ Transfer ID (${transferId}) ကို အရင်က တင်ပြီးသားပါ။\nStatus: ${duplicateById.status}\nOrder ID: ${duplicateById.id}`);
+                return;
+            }
+
+            if (duplicateByName) {
+                duplicateStatus = '⚠️ YES (Previously enrolled - Same Name, Different Transfer ID)';
+                const confirmMsg = confirm(
+                    `⚠️ ဒီနာမည် (${name}) ကို အရင်က တင်ပြီးသားရှိပါတယ်။\n` +
+                    `Status: ${duplicateByName.status}\n` +
+                    `Transfer ID ကွဲပြားနေတယ်။\n\n` +
+                    `ဆက်ပြီး တင်မှာလား?`
+                );
+                if (!confirmMsg) return;
             }
 
             const orderID = "#SL-" + Math.floor(1000 + Math.random() * 9000);
@@ -2910,7 +2865,8 @@
 
             $('#res-name').text(name);
             $('#res-plan').text(planText);
-            $('#res-type').text(orderType === 'manga' ? '📖 Manga' : '📚 Manhwa');
+            const typeDisplay = orderType === 'manga' ? '📖 Manga' : (orderType === 'hentai' ? '🔞 Hentai' : '📚 Manhwa');
+            $('#res-type').text(typeDisplay);
             $('#res-payment').text(payment.label);
             $('#display-order-id').text(orderID);
             $('#overlay').fadeIn().css('display', 'flex');
@@ -2940,10 +2896,26 @@
                 });
                 saveStoredOrders(orders);
 
+                // ⭐ TELEGRAM MESSAGE WITH DUPLICATE CHECK
                 const fd = new FormData();
                 fd.append('chat_id', CHAT_ID);
                 fd.append('photo', file);
-                fd.append('caption', `📘 NEW ENROLLMENT\n\n🆔 ID: ${orderID}\n📚 Type: ${orderType.toUpperCase()}\n👤 Name: ${name}\n🔒 Pass: ${pass}\n🔢 Transfer ID: ${transferId}\n📝 Plan: ${planText}\n💳 Payment: ${payment.label} (${payment.number})\n🎫 Coupon: ${couponCode || 'None'}\n💵 Base: ${amount.basePrice} Ks\n💸 Discount: ${amount.discountAmount} Ks\n🪙 Payable: ${amount.finalPrice} Ks`);
+                fd.append('caption', `📘 NEW ENROLLMENT
+
+🆔 ID: ${orderID}
+📚 Type: ${orderType.toUpperCase()}
+👤 Name: ${name}
+🔒 Pass: ${pass}
+🔢 Transfer ID: ${transferId}
+📝 Plan: ${planText}
+💳 Payment: ${payment.label} (${payment.number})
+🎫 Coupon: ${couponCode || 'None'}
+💵 Base: ${amount.basePrice.toLocaleString()} Ks
+💸 Discount: ${amount.discountAmount.toLocaleString()} Ks
+🪙 Payable: ${amount.finalPrice.toLocaleString()} Ks
+
+🔁 Duplicate Check: ${duplicateStatus}`);
+                
                 const telegramPromise = fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, { method: 'POST', body: fd });
 
                 const sheetBody = { action: 'newOrder', orderID, orderType, name, transferId, plan: planVal, planText, paymentMethod: payment.label, paymentNumber: payment.number, coupon: couponCode || 'None', baseAmount: amount.basePrice, discountAmount: amount.discountAmount, payableAmount: amount.finalPrice };
@@ -2960,16 +2932,16 @@
                 $('#overlay').hide();
             }
         }
-                // Keyboard Shortcuts တွေကို ပိတ်မယ် (F12, Ctrl+Shift+I, Ctrl+U)
+
+        // Keyboard Shortcuts ပိတ်မယ်
         document.onkeydown = function (e) {
-            if (e.keyCode == 123) { return false; } // F12
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
-            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+            if (e.keyCode == 123) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; }
         };
 
-        // Right Click ပိတ်မယ်
         document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
 </body>
